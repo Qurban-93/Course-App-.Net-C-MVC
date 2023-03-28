@@ -22,6 +22,7 @@ namespace MVCProject.Controllers
         {
             if (id == null || id == 0) return NotFound(); 
             Blog? blog = await _context.Blogs.FirstOrDefaultAsync(b => b.Id == id);
+            if (blog == null) return NotFound();
 
             return View(blog);
         }
