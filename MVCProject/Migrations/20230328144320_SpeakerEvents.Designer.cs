@@ -4,6 +4,7 @@ using MVCProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVCProject.Migrations
 {
     [DbContext(typeof(WebAppContext))]
-    partial class WebAppContextModelSnapshot : ModelSnapshot
+    [Migration("20230328144320_SpeakerEvents")]
+    partial class SpeakerEvents
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -115,7 +118,7 @@ namespace MVCProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Blogs", (string)null);
+                    b.ToTable("Blogs");
                 });
 
             modelBuilder.Entity("MVCProject.Models.Comment", b =>
@@ -148,7 +151,7 @@ namespace MVCProject.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Comments", (string)null);
+                    b.ToTable("Comments");
                 });
 
             modelBuilder.Entity("MVCProject.Models.Course", b =>
@@ -200,7 +203,7 @@ namespace MVCProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Courses", (string)null);
+                    b.ToTable("Courses");
                 });
 
             modelBuilder.Entity("MVCProject.Models.Event", b =>
@@ -231,7 +234,7 @@ namespace MVCProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Events", (string)null);
+                    b.ToTable("Events");
                 });
 
             modelBuilder.Entity("MVCProject.Models.EventSpeakers", b =>
@@ -254,7 +257,7 @@ namespace MVCProject.Migrations
 
                     b.HasIndex("SpeakerId");
 
-                    b.ToTable("EventsSpeakers", (string)null);
+                    b.ToTable("EventsSpeakers");
                 });
 
             modelBuilder.Entity("MVCProject.Models.Notice", b =>
@@ -274,7 +277,7 @@ namespace MVCProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Notices", (string)null);
+                    b.ToTable("Notices");
                 });
 
             modelBuilder.Entity("MVCProject.Models.NoticeInfo", b =>
@@ -293,7 +296,7 @@ namespace MVCProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("NoticeInfos", (string)null);
+                    b.ToTable("NoticeInfos");
                 });
 
             modelBuilder.Entity("MVCProject.Models.Slider", b =>
@@ -318,7 +321,7 @@ namespace MVCProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Sliders", (string)null);
+                    b.ToTable("Sliders");
                 });
 
             modelBuilder.Entity("MVCProject.Models.Speaker", b =>
@@ -340,7 +343,7 @@ namespace MVCProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Speakers", (string)null);
+                    b.ToTable("Speakers");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MVCProject.Data;
 using MVCProject.Models;
 using MVCProject.ViewModels;
@@ -20,11 +21,19 @@ namespace MVCProject.Controllers
             List<Notice> notices= _context.Notices.ToList();
             List<NoticeInfo> noticeInfos= _context.NoticeInfos.ToList();
             List<Course> courses = _context.Courses.ToList();
+            List<Blog> blogs= _context.Blogs.ToList();
+            List<Event> events = _context.Events
+                .Include(e=>e.EventSpeakers)
+                .ThenInclude(es=>es.Speaker)
+                .ToList();  
             HomeVM homeVM = new HomeVM();
             homeVM.Sliders = sliders;
             homeVM.Notices = notices;
             homeVM.NoticesInfo = noticeInfos;
             homeVM.Courses= courses;
+            homeVM.Events= events;
+            homeVM.Blogs= blogs;
+
             return View(homeVM);
         }
 

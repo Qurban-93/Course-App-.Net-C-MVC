@@ -14,6 +14,9 @@ namespace MVCProject.Data
         public DbSet<Notice> Notices { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<NoticeInfo> NoticeInfos { get; set; }
+        public DbSet<Event> Events { get; set; }
+        public DbSet<Speaker> Speakers { get; set; }
+        public DbSet<EventSpeakers> EventsSpeakers { get; set;}
 
 
 
