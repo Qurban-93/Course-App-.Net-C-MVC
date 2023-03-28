@@ -13,6 +13,8 @@ namespace MVCProject.Data
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<Notice> Notices { get; set; }
         public DbSet<Course> Courses { get; set; }
+        public DbSet<NoticeInfo> NoticeInfos { get; set; }
+
 
 
 

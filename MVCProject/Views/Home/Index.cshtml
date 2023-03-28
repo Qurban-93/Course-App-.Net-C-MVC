@@ -32,8 +32,6 @@
     </div>
 </section>
 <!-- Background Area End -->
-
-
 <!-- Notice Start -->
 <section class="notice-area pt-150 pb-150">
     <div class="container">
@@ -41,66 +39,31 @@
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="notice-left">
                     <h3>notice board</h3>
-                    <div class="single-notice-left mb-25 pb-25">
-                        <h4>5, June 2017</h4>
-                        <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
-                    </div>
-                    <div class="single-notice-left mb-25 pb-25">
-                        <h4>4, June 2017</h4>
-                        <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
-                    </div>
-                    <div class="single-notice-left pb-75">
-                        <h4>3, June 2017</h4>
-                        <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
-                    </div>
-                    <div class="single-notice-left mb-25 pb-25">
-                        <h4>5, June 2017</h4>
-                        <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
-                    </div>
-                    <div class="single-notice-left mb-25 pb-25">
-                        <h4>4, June 2017</h4>
-                        <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
-                    </div>
-                    <div class="single-notice-left pb-70">
-                        <h4>3, June 2017</h4>
-                        <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
-                    </div>
-                    <div class="single-notice-left mb-25 pb-25">
-                        <h4>5, June 2017</h4>
-                        <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
-                    </div>
-                    <div class="single-notice-left mb-25 pb-25">
-                        <h4>4, June 2017</h4>
-                        <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
-                    </div>
-                    <div class="single-notice-left pb-70">
-                        <h4>3, June 2017</h4>
-                        <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
-                    </div>
+                    @foreach (var item in Model.Notices)
+                    {
+                        <div class="single-notice-left mb-25 pb-25">
+                            <h4>@item.PublishDate.ToString("dddd, dd MMMM yyyy")</h4>
+                            <p>@item.Content</p>
+                        </div>
+                    }
+
                 </div>
             </div>
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="notice-right">
-                    <div class="single-notice-right mb-25 pb-25">
-                        <h3>PROFESSIONAL TEACHER</h3>
-                        <p>I must explain to you how all this mistaken idea of denouncing pleure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings </p>
-                    </div>
-                    <div class="single-notice-right mb-25 pb-25">
-                        <h3>Online courses</h3>
-                        <p>I must explain to you how all this mistaken idea of denouncing pleure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings </p>
-                    </div>
-                    <div class="single-notice-right">
-                        <h3>easy to addmission</h3>
-                        <p>I must explain to you how all this mistaken idea of denouncing pleure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings </p>
-                    </div>
+                    @foreach (var item in Model.NoticesInfo)
+                    {
+                        <div class="single-notice-right pb-25">
+                            <h3>@item.Heading</h3>
+                            <p>@item.Сontent</p>
+                        </div>
+                    }
                 </div>
             </div>
         </div>
     </div>
 </section>
 <!-- Notice End -->
-
-
 <!-- Choose Start -->
 <section class="choose-area pb-85 pt-77">
     <div class="container">
@@ -117,8 +80,6 @@
     </div>
 </section>
 <!-- Choose Area End -->
-
-
 <!-- Courses Area Start -->
 <div class="courses-area pt-150 text-center">
     <div class="container">
@@ -131,63 +92,32 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="single-course">
-                    <div class="course-img">
-                        <a href="course-details.html">
-                            <img src="img/course/course1.jpg" alt="course">
-                            <div class="course-hover">
-                                <i class="fa fa-link"></i>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="course-content">
-                        <h3><a href="course-details.html">CSE ENGINEERING</a></h3>
-                        <p>I must explain to you how all this a mistaken idea of denouncing great explorer of the rut the is lder of human happiness</p>
-                        <a class="default-btn" href="course-details.html">read more</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="single-course">
-                    <div class="course-img">
-                        <a href="course-details.html">
-                            <img src="img/course/course2.jpg" alt="course">
-                            <div class="course-hover">
-                                <i class="fa fa-link"></i>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="course-content">
-                        <h3><a href="course-details.html">CSE ENGINEERING</a></h3>
-                        <p>I must explain to you how all this a mistaken idea of denouncing great explorer of the rut the is lder of human happiness</p>
-                        <a class="default-btn" href="course-details.html">read more</a>
+            @foreach (var item in Model.Courses)
+            {
+                <div class="col-md-4 col-sm-6 col-xs-12 mb-20">
+                    <div class="single-course">
+                        <div class="course-img">
+                            <a href="course-details.html">
+                                <img src="img/course/@item.ImageUrl" alt="course">
+                                <div class="course-hover">
+                                    <i class="fa fa-link"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="course-content">
+                            <h3><a href="course-details.html">@item.CourseName.ToUpper()</a></h3>
+                            <p>@item.Description.Substring(0,100)...</p>
+                            <a class="default-btn" href="course-details.html">read more</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 hidden-sm col-xs-12">
-                <div class="single-course">
-                    <div class="course-img">
-                        <a href="course-details.html">
-                            <img src="img/course/course3.jpg" alt="course">
-                            <div class="course-hover">
-                                <i class="fa fa-link"></i>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="course-content">
-                        <h3><a href="course-details.html">CSE ENGINEERING</a></h3>
-                        <p>I must explain to you how all this a mistaken idea of denouncing great explorer of the rut the is lder of human happiness</p>
-                        <a class="default-btn" href="course-details.html">read more</a>
-                    </div>
-                </div>
-            </div>
+
+            }
+
         </div>
     </div>
 </div>
 <!-- Courses Area End -->
-
-
 <!-- Event Area Start -->
 <div class="event-area one text-center pt-140 pb-150">
     <div class="container">
@@ -344,8 +274,6 @@
     </div>
 </div>
 <!-- Event Area End -->
-
-
 <!-- Testimonial Area Start -->
 <div class="testimonial-area pt-110 pb-105 text-center">
     <div class="container">
@@ -370,8 +298,6 @@
     </div>
 </div>
 <!-- Testimonial Area End -->
-
-
 <!-- Blog Area Start -->
 <div class="blog-area pt-150 pb-150">
     <div class="container">
@@ -445,8 +371,6 @@
     </div>
 </div>
 <!-- Blog Area End -->
-
-
 <!-- Subscribe Start -->
 <div class="subscribe-area pt-60 pb-70">
     <div class="container">
