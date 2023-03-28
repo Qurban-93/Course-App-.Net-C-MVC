@@ -20,8 +20,8 @@ namespace MVCProject.Controllers
             List<Slider> sliders = _context.Sliders.ToList();
             List<Notice> notices= _context.Notices.ToList();
             List<NoticeInfo> noticeInfos= _context.NoticeInfos.ToList();
-            List<Course> courses = _context.Courses.ToList();
-            List<Blog> blogs= _context.Blogs.ToList();
+            List<Course> courses = _context.Courses.Take(3).ToList();
+            List<Blog> blogs= _context.Blogs.Take(3).ToList();
             List<Event> events = _context.Events
                 .Include(e=>e.EventSpeakers)
                 .ThenInclude(es=>es.Speaker)
