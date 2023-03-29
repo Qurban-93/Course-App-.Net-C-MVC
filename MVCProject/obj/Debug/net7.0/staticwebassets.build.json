@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "iPzqfaAxJVuuIVmF/XePRurtjmNuEETNrcfnY31GqEI=",
+  "Hash": "0lPRMwCQHVu4rKmRr7fmG/ZyNfa2DYGtu+R2KJxU68w=",
   "Source": "MVCProject",
   "BasePath": "_content/MVCProject",
   "Mode": "Default",
@@ -1409,6 +1409,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\event\\event-details.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\img\\event\\Random.png",
+      "SourceId": "MVCProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\",
+      "BasePath": "_content/MVCProject",
+      "RelativePath": "img/event/Random.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\event\\Random.png"
     },
     {
       "Identity": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\img\\event\\speaker1.jpg",

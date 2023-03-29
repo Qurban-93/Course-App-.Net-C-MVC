@@ -17,6 +17,10 @@ namespace MVCProject.Data
         public DbSet<Event> Events { get; set; }
         public DbSet<Speaker> Speakers { get; set; }
         public DbSet<EventSpeakers> EventsSpeakers { get; set;}
+        public DbSet<Teacher> Teachers { get; set; }
+        public DbSet<Skills> Skills { get; set; }
+        public DbSet<SocialWebs> SocialWebs { get; set; }
+
 
 
 

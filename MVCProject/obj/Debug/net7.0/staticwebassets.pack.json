@@ -273,6 +273,10 @@
       "PackagePath": "staticwebassets\\img\\course\\courses-details.jpg"
     },
     {
+      "Id": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\img\\event\\Random.png",
+      "PackagePath": "staticwebassets\\img\\event\\Random.png"
+    },
+    {
       "Id": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\img\\event\\event-details.jpg",
       "PackagePath": "staticwebassets\\img\\event\\event-details.jpg"
     },

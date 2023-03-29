@@ -4,6 +4,7 @@ using MVCProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVCProject.Migrations
 {
     [DbContext(typeof(WebAppContext))]
-    partial class WebAppContextModelSnapshot : ModelSnapshot
+    [Migration("20230329135714_addTeacherSocialWebsSkills")]
+    partial class addTeacherSocialWebsSkills
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -296,43 +299,6 @@ namespace MVCProject.Migrations
                     b.ToTable("NoticeInfos");
                 });
 
-            modelBuilder.Entity("MVCProject.Models.Skills", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Communication")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Design")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Development")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Innovation")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Language")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("TeacherId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("TeamLider")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TeacherId")
-                        .IsUnique();
-
-                    b.ToTable("Skills");
-                });
-
             modelBuilder.Entity("MVCProject.Models.Slider", b =>
                 {
                     b.Property<int>("Id")
@@ -358,36 +324,6 @@ namespace MVCProject.Migrations
                     b.ToTable("Sliders");
                 });
 
-            modelBuilder.Entity("MVCProject.Models.SocialWebs", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Facebook")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Instagram")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LinkedIn")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("TeacherId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Twitter")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TeacherId");
-
-                    b.ToTable("SocialWebs");
-                });
-
             modelBuilder.Entity("MVCProject.Models.Speaker", b =>
                 {
                     b.Property<int>("Id")
@@ -408,52 +344,6 @@ namespace MVCProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Speakers");
-                });
-
-            modelBuilder.Entity("MVCProject.Models.Teacher", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("AboutMe")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Degree")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Experience")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Faculty")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FullName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Hobbies")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Mail")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Post")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Skype")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Teachers");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -625,26 +515,6 @@ namespace MVCProject.Migrations
                     b.Navigation("Speaker");
                 });
 
-            modelBuilder.Entity("MVCProject.Models.Skills", b =>
-                {
-                    b.HasOne("MVCProject.Models.Teacher", null)
-                        .WithOne("Skills")
-                        .HasForeignKey("MVCProject.Models.Skills", "TeacherId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("MVCProject.Models.SocialWebs", b =>
-                {
-                    b.HasOne("MVCProject.Models.Teacher", "Teacher")
-                        .WithMany("SocialWebs")
-                        .HasForeignKey("TeacherId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Teacher");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -714,13 +584,6 @@ namespace MVCProject.Migrations
             modelBuilder.Entity("MVCProject.Models.Speaker", b =>
                 {
                     b.Navigation("EventsSpeakers");
-                });
-
-            modelBuilder.Entity("MVCProject.Models.Teacher", b =>
-                {
-                    b.Navigation("Skills");
-
-                    b.Navigation("SocialWebs");
                 });
 #pragma warning restore 612, 618
         }
