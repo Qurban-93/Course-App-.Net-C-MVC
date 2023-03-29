@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "0lPRMwCQHVu4rKmRr7fmG/ZyNfa2DYGtu+R2KJxU68w=",
+  "Hash": "oCqaiUt4D4qLwD/B8kPPfJ/OLFJ5GasxzA33aR81IhQ=",
   "Source": "MVCProject",
   "BasePath": "_content/MVCProject",
   "Mode": "Default",
@@ -916,6 +916,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\blog\\blog-img.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\img\\blog\\comment-icon.png",
+      "SourceId": "MVCProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\",
+      "BasePath": "_content/MVCProject",
+      "RelativePath": "img/blog/comment-icon.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\blog\\comment-icon.png"
     },
     {
       "Identity": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\img\\choose\\choose.png",

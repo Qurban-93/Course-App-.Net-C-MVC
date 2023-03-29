@@ -1,4 +1,6 @@
-﻿<!doctype html>
+﻿@inject MVCProject.Service.LayoutService service
+
+<!doctype html>
 <html class="no-js" lang="en">
 
 <!-- Mirrored from demo.devitems.com/eduhome/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 21 Jun 2020 19:44:02 GMT -->
@@ -24,6 +26,9 @@
     <link rel="stylesheet" href="~/css/material-design-iconic-font.min.css">
     <link rel="stylesheet" href="~/css/style.css">
     <link rel="stylesheet" href="~/css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="~/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
@@ -36,7 +41,8 @@
 		            <div class="row">
 		                <div class="col-md-8 col-sm-8 col-xs-12">
 		                    <div class="header-top-left">
-		                        <p>HAVE ANY QUESTION ?  +880 5698  598  6587</p>
+		                        <p>HAVE ANY QUESTION ?  
+                                    @service.GetSettings().FirstOrDefault(s=>s.Key.ToLower().Contains("phone1"))?.Value</p>
 		                    </div>
 		                </div>
 		                <div class="col-md-4 col-sm-4 col-xs-12">
@@ -56,7 +62,8 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-3 col-xs-6">
                         <div class="logo">
-                            <a asp-action="index" asp-controller="home"><img src="img/logo/logo.png" alt="eduhome" /></a>
+                            <a asp-action="index" asp-controller="home">
+                                <img src="img/logo/@service.GetSettings().FirstOrDefault(s=>s.Key.ToLower().Contains("loqo1"))?.Value" alt="eduhome" /></a>
                         </div>
                     </div>
                     <div class="col-md-9 col-sm-9 col-xs-12">
@@ -113,10 +120,12 @@
                             <p>I must explain to you how all this mistaken idea of denoung pleure and praising pain was born and give you a coete account of the system. </p>
                             <div class="footer-social">
                                 <ul>
-                                    <li><a href="#"><i class="zmdi zmdi-facebook"></i></a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-pinterest"></i></a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-vimeo"></i></a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-twitter"></i></a></li>
+                                    <li><a href="#">@Html.Raw(service.GetSettings().FirstOrDefault(s=>s.Key.ToLower().Contains("social1"))?.Value)</a></li>
+                                    <li><a href="#">@Html.Raw(service.GetSettings().FirstOrDefault(s=>s.Key.ToLower().Contains("social2"))?.Value)</a></li>
+                                    <li><a href="#">@Html.Raw(service.GetSettings().FirstOrDefault(s=>s.Key.ToLower().Contains("social3"))?.Value)</a></li>
+                                    <li><a href="#">@Html.Raw(service.GetSettings().FirstOrDefault(s=>s.Key.ToLower().Contains("social4"))?.Value)</a></li>
+                                    <li><a href="#">@Html.Raw(service.GetSettings().FirstOrDefault(s=>s.Key.ToLower().Contains("social5"))?.Value)</a></li>
+
                                 </ul>
                             </div>
                         </div>
@@ -148,9 +157,12 @@
                     <div class="col-md-3 col-sm-6 col-xs-12">
                         <div class="single-widget">
                             <h3>get in touch</h3>
-                            <p>Your address goes here, Street<br>City, Roadno 785 New York</p>
-                            <p>+880  548  986  898  87<br>+880  659  785  658  98</p>
-                            <p>info@eduhome.com<br>www.eduhome.com</p>
+                            <p>Your address goes here,<br>@service.GetSettings().FirstOrDefault(s=>s.Key.ToLower().Contains("adress"))?.Value</p>
+                            <p>@service.GetSettings().FirstOrDefault(s=>s.Key.ToLower().Contains("phone2"))?.Value<br>
+                                @service.GetSettings().FirstOrDefault(s=>s.Key.ToLower().Contains("phone3"))?.Value</p>
+                            <p>@service.GetSettings().FirstOrDefault(s=>s.Key.ToLower().Contains("site"))?.Value<br>
+                                @service.GetSettings().FirstOrDefault(s=>s.Key.ToLower().Contains("mail"))?.Value
+                            </p>
                         </div>
                     </div>
                 </div>

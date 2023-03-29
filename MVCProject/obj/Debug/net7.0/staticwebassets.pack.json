@@ -209,6 +209,10 @@
       "PackagePath": "staticwebassets\\img\\blog\\blog9.jpg"
     },
     {
+      "Id": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\img\\blog\\comment-icon.png",
+      "PackagePath": "staticwebassets\\img\\blog\\comment-icon.png"
+    },
+    {
       "Id": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\img\\choose\\choose-bd.jpg",
       "PackagePath": "staticwebassets\\img\\choose\\choose-bd.jpg"
     },

@@ -21,9 +21,14 @@ namespace MVCProject.Data
         public DbSet<Skill> Skills { get; set; }
         public DbSet<SocialWebs> SocialWebs { get; set; }
         public DbSet<Tag> Tags { get; set; }
+        public DbSet<Settings> Settings { get; set; }
 
 
-
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<Settings>().HasIndex(s=>s.Key).IsUnique();
+            base.OnModelCreating(builder);
+        }
 
 
 
