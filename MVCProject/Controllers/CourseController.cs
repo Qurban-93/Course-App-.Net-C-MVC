@@ -23,6 +23,7 @@ namespace MVCProject.Controllers
             if(id == null || id == 0) return NotFound();
             Course? course = await _context.Courses.FirstOrDefaultAsync(c => c.Id == id);
             if(course == null) return NotFound();
+            ViewBag.Blogs = _context.Blogs.OrderByDescending(c => c.Id).Take(4).ToList();
 
             return View(course);
         }

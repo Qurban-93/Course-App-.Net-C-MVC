@@ -21,8 +21,11 @@ namespace MVCProject.Controllers
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || id == 0) return NotFound(); 
-            Blog? blog = await _context.Blogs.FirstOrDefaultAsync(b => b.Id == id);
+            Blog? blog = await _context.Blogs.Include(b=>b.Comments)
+                .FirstOrDefaultAsync(b => b.Id == id);
             if (blog == null) return NotFound();
+            ViewBag.Blogs = ViewBag.Blogs = _context.Blogs.Take(4).ToList();
+
 
             return View(blog);
         }

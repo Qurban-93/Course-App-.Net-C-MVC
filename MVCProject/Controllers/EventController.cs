@@ -25,7 +25,8 @@ namespace MVCProject.Controllers
             Event event1 = await _context.Events
                 .Include(e=>e.EventSpeakers).ThenInclude(es=>es.Speaker)
                 .FirstOrDefaultAsync(e => e.Id == id);
-            if (event1 == null)  return NotFound(); 
+            if (event1 == null)  return NotFound();
+            ViewBag.Courses = _context.Courses.OrderByDescending(c => c.Id).Take(3).ToList();
             return View(event1);
         }
     }

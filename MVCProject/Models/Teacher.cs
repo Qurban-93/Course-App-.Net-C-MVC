@@ -16,7 +16,7 @@ namespace MVCProject.Models
         public string? AboutMe { get; set;}
         public string? ImageUrl { get; set; }
         public List<SocialWebs>? SocialWebs { get; set; }
-        public Skills? Skills { get; set; }
+        public List<Skill>? Skills { get; set; }
 
 
 
