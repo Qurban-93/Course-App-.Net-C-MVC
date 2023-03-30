@@ -12,7 +12,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<LayoutService>();
 
-builder.Services.AddScoped<ISendEmailService,SendEmailService>();
+builder.Services.AddScoped<ISendEmailService, SendEmailService>();
 
 builder.Services.AddDbContext<WebAppContext>(options => options.UseSqlServer
 (builder.Configuration.GetConnectionString("default")));
@@ -44,6 +44,11 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.MapControllerRoute(
+            name: "areas",
+            pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+          );
 
 app.MapControllerRoute(
     name: "default",
