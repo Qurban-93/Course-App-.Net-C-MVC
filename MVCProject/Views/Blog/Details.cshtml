@@ -34,15 +34,45 @@
                     <div class="reply-area">
                         <h3>LEAVE A REPLY</h3>
                         <p>I must explain to you how all this a mistaken idea of ncing great explorer of the rut<br> the is lder of human happinescias unde omnis iste natus error sit volptatem </p>
-                        <form id="contact-form" action="http://demo.devitems.com/eduhome/mail.php" method="post">
-                            <div class="row">                          
-                                <div class="col-md-9">                                  
-                                    <p>Comments (@Model.Comments.Count)</p>
+                        <div class="comments">
+                            <h5>@Model.Comments.Count Comment</h5>
+                            <ul class="mt-30">
+                                @foreach (var item in Model.Comments)
+                                {
+                                    <li class="row">
+                                        <div class="col-lg-1 col-md-1">
+                                            <img src="~/img/blog/comment-icon.png" alt="">
+                                        </div>
+                                        <div class="col-lg-8 col-md-8">
+                                            <h5 class="comment-author">@item.User.FullName</h5>
+                                            <p>@item.Date.ToString("dd MMMM , yyyy ,hh:mm")  </p>
+                                            <p class="mb-0"> @item.Content  </p>
+                                        </div>
+                                        <div class="col-lg-2 col-md-2">
+                                            @if (User.Identity.Name == item.User.UserName)
+                                            {
+                                                <a asp-controller="Comment" asp-action="Delete"
+                                                    asp-route-id="@item.Id" class="btn btn-danger">
+                                                    Delete
+                                                </a>
+                                            }
+                                        </div>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+
+                        <form class="mb-30" asp-action="add" asp-controller="Comment" asp-route-id="@Model.Id" method="post">
+                            <div class="row">
+                                <div class="col-md-9">
                                     <input name="message" placeholder="Comment">
                                 </div>
                             </div>
-                            <a class="reply-btn" href="#" data-text="send"><span>Publish</span></a>
-                            <p class="form-messege"></p>
+                            <button type="submit" class="default-btn mb-30">Publish</button>
+                            @if (TempData["EmptyComment"] != null)
+                            {
+                                <span class="text-danger mb-20">@TempData["EmptyComment"]</span>
+                            }
                         </form>
                     </div>
                 </div>

@@ -1,27 +1,30 @@
-﻿using MailKit.Net.Smtp;
-using MailKit.Security;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MimeKit;
 using MimeKit.Text;
+using MVCProject.Interfaces;
 using MVCProject.Models;
 using MVCProject.ViewModels;
 using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
 
-namespace JuanProject.Controllers
+namespace MVCProject.Controllers
 {
     public class AccountController : Controller
     {
-        UserManager<AppUser> _userManager;
-        SignInManager<AppUser> _signInManager;
-        RoleManager<IdentityRole> _roleManager;
+        private readonly UserManager<AppUser> _userManager;
+        private readonly SignInManager<AppUser> _signInManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly ISendEmailService _sendEmailService;
 
         public AccountController(UserManager<AppUser> userManager, 
-            SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager)
+            SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager,
+            ISendEmailService sendEmailService)
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _roleManager = roleManager;
+            _sendEmailService = sendEmailService;
+
         }
 
         public async Task<IActionResult> Index()
@@ -64,7 +67,7 @@ namespace JuanProject.Controllers
             string token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
 
             string? link = Url.Action(nameof(EmailConfirm), "Account",
-                new { userId = user.Id, token },
+                new { userId = user.Id, token , registerVM.RememmberMe},
                 Request.Scheme, Request.Host.ToString());
 
 
@@ -85,11 +88,12 @@ namespace JuanProject.Controllers
             email.Body = new TextPart(TextFormat.Html) { Text = body };
 
             // send email
-            SmtpClient smtp = new SmtpClient();
-            smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
-            smtp.Authenticate("qurban231293@gmail.com", "olszimzdwkxyjwwz");
-            smtp.Send(email);
-            smtp.Disconnect(true);
+            _sendEmailService.SendEmail("qurban231293@gmail.com", "olszimzdwkxyjwwz","smtp.gmail.com",email);
+            //SmtpClient smtp = new SmtpClient();
+            //smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
+            //smtp.Authenticate("qurban231293@gmail.com", "olszimzdwkxyjwwz");
+            //smtp.Send(email);
+            //smtp.Disconnect(true);
 
             return RedirectToAction("VerifyEmail");
         }
@@ -97,7 +101,7 @@ namespace JuanProject.Controllers
         {
             return View();
         }
-        public async Task<IActionResult> EmailConfirm(string token, string userId)
+        public async Task<IActionResult> EmailConfirm(string token, string userId ,bool rememmberMe)
         {
             if (string.IsNullOrEmpty(userId) || string.IsNullOrEmpty(token))
             {
@@ -107,36 +111,54 @@ namespace JuanProject.Controllers
             AppUser? user = await _userManager.FindByIdAsync(userId);
 
             await _userManager.ConfirmEmailAsync(user, token);
-            await _signInManager.SignInAsync(user, isPersistent: false);
-            await _userManager.AddToRoleAsync(user, "User");
+            if (rememmberMe)
+            {
+                await _signInManager.SignInAsync(user, isPersistent: false);
+            }
+            if (!_roleManager.Roles.Any())
+            {
+                string[] roles = { "SuperAdmin", "User" };
 
-
+                foreach (var item in roles)
+                {
+                    await _roleManager.CreateAsync(new IdentityRole { Name = item });
+                }
+                await _userManager.AddToRoleAsync(user, "SuperAdmin");
+            }
+            else
+            {
+                await _userManager.AddToRoleAsync(user, "User");
+            }
+         
             return RedirectToAction(nameof(SuccesfulReqistered));
         }
         public IActionResult SuccesfulReqistered()
         {
             return View();
         }
-        public async Task<IActionResult> Login()
+        public IActionResult Login()
         {
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginVM loginVM, string ReturnUrl)
+        public async Task<IActionResult> Login(LoginVM loginVM, string? ReturnUrl)
         {
             if (loginVM == null) return NotFound();
             if (!ModelState.IsValid)
             {
-                ModelState.AddModelError("", "UserName or Email or Password !");
+                ModelState.AddModelError("", "Sehvlik var!");
+                return View(); 
             }
+               
+            
             AppUser user = await _userManager.FindByEmailAsync(loginVM.UserNameOrEmail);
             if (user == null)
             {
                 user = await _userManager.FindByNameAsync(loginVM.UserNameOrEmail);
                 if (user == null)
                 {
-                    ModelState.AddModelError("", "Sehvlik var !");
+                    ModelState.AddModelError("UserNameOrEmail", "Sehvlik var !");
                     return View(loginVM);
                 }
             }
@@ -154,7 +176,7 @@ namespace JuanProject.Controllers
 
                 if (!result.Succeeded)
                 {
-                    ModelState.AddModelError("", "Username or Email or Password invalid!");
+                    ModelState.AddModelError("UserNameOrEmail", "Username or Email or Password invalid!");
                     return View(loginVM);
                 }
 
@@ -215,11 +237,12 @@ namespace JuanProject.Controllers
             email.Body = new TextPart(TextFormat.Html) { Text = body };
 
             // send email
-            using SmtpClient smtp = new SmtpClient();
-            smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
-            smtp.Authenticate("qurban231293@gmail.com", "olszimzdwkxyjwwz");
-            smtp.Send(email);
-            smtp.Disconnect(true);
+            _sendEmailService.SendEmail("qurban231293@gmail.com", "olszimzdwkxyjwwz", "smtp.gmail.com",email);
+            //using SmtpClient smtp = new SmtpClient();
+            //smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
+            //smtp.Authenticate("qurban231293@gmail.com", "olszimzdwkxyjwwz");
+            //smtp.Send(email);
+            //smtp.Disconnect(true);
 
             return RedirectToAction("VerifyEmail");
 
@@ -281,18 +304,7 @@ namespace JuanProject.Controllers
 
             return RedirectToAction(nameof(Login));
         }
-
-        public async Task<IActionResult> CreateRoles()
-
-        {
-            string[] roles = { "SuperAdmin", "Admin", "USer", "Moderator" };
-
-            foreach (var item in roles)
-            {
-                await _roleManager.CreateAsync(new IdentityRole { Name = item });
-            }
-            return Content("elave edildi");
-        }
+      
 
 
     }

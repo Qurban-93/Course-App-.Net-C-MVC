@@ -27,8 +27,9 @@
     <link rel="stylesheet" href="~/css/style.css">
     <link rel="stylesheet" href="~/css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
     <script src="~/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
@@ -37,25 +38,36 @@
     <![endif]-->
     <!-- Header Area Start -->
     <div class="header-top">
-		        <div class="container">
-		            <div class="row">
-		                <div class="col-md-8 col-sm-8 col-xs-12">
-		                    <div class="header-top-left">
-		                        <p>HAVE ANY QUESTION ?  
-                                    @service.GetSettings().FirstOrDefault(s=>s.Key.ToLower().Contains("phone1"))?.Value</p>
-		                    </div>
-		                </div>
-		                <div class="col-md-4 col-sm-4 col-xs-12">
-		                    <div class="header-top-right text-right">
-		                        <ul>
-		                            <li><a href="login.html">login</a></li>
-		                            <li><a href="signup.html">signup</a></li>
-		                        </ul>
-		                    </div>
-		                </div>
-		            </div>
-		        </div>
-		    </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <div class="header-top-left">
+                        <p>
+                            HAVE ANY QUESTION ?
+                            @service.GetSettings().FirstOrDefault(s=>s.Key.ToLower().Contains("phone1"))?.Value
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="header-top-right text-right">
+                        <ul>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li><a asp-action="index" asp-controller="account">@User.Identity.Name</a></li>
+                                <li><a asp-action="logout" asp-controller="account">Log Out</a></li>
+                            }
+                            else
+                            {
+                                <li><a asp-action="login" asp-controller="account">login</a></li>
+                                <li><a asp-action="register" asp-controller="account">signup</a></li>
+
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <header class="top">
         <div class="header-area header-sticky fixed">
             <div class="container">
@@ -63,7 +75,8 @@
                     <div class="col-md-3 col-sm-3 col-xs-6">
                         <div class="logo">
                             <a asp-action="index" asp-controller="home">
-                                <img src="img/logo/@service.GetSettings().FirstOrDefault(s=>s.Key.ToLower().Contains("loqo1"))?.Value" alt="eduhome" /></a>
+                                <img src="img/logo/@service.GetSettings().FirstOrDefault(s=>s.Key.ToLower().Contains("loqo1"))?.Value" alt="eduhome" />
+                            </a>
                         </div>
                     </div>
                     <div class="col-md-9 col-sm-9 col-xs-12">
@@ -74,22 +87,22 @@
                                     <ul>
                                         <li>
                                             <a asp-action="index" asp-controller="home">Home</a>
-                                           
+
                                         </li>
                                         <li><a asp-action="index" asp-controller="about">About</a></li>
                                         <li>
-                                            <a asp-action="index" asp-controller="course">courses</a>                                    
+                                            <a asp-action="index" asp-controller="course">courses</a>
                                         </li>
                                         <li>
                                             <a asp-action="index" asp-controller="event">event</a>
                                         </li>
                                         <li class="hidden-sm">
-                                            <a asp-action="index" asp-controller="teacher">teacher</a>                                       
+                                            <a asp-action="index" asp-controller="teacher">teacher</a>
                                         </li>
                                         <li>
                                             <a asp-action="index" asp-controller="blog">blog</a>
                                             <ul>
-                                                <li><a asp-action="index" asp-controller="blog">blog</a></li>                                             
+                                                <li><a asp-action="index" asp-controller="blog">blog</a></li>
                                             </ul>
                                         </li>
                                         <li><a asp-action="index" asp-controller="contact">Contact</a></li>
@@ -158,9 +171,12 @@
                         <div class="single-widget">
                             <h3>get in touch</h3>
                             <p>Your address goes here,<br>@service.GetSettings().FirstOrDefault(s=>s.Key.ToLower().Contains("adress"))?.Value</p>
-                            <p>@service.GetSettings().FirstOrDefault(s=>s.Key.ToLower().Contains("phone2"))?.Value<br>
-                                @service.GetSettings().FirstOrDefault(s=>s.Key.ToLower().Contains("phone3"))?.Value</p>
-                            <p>@service.GetSettings().FirstOrDefault(s=>s.Key.ToLower().Contains("site"))?.Value<br>
+                            <p>
+                                @service.GetSettings().FirstOrDefault(s=>s.Key.ToLower().Contains("phone2"))?.Value<br>
+                                @service.GetSettings().FirstOrDefault(s=>s.Key.ToLower().Contains("phone3"))?.Value
+                            </p>
+                            <p>
+                                @service.GetSettings().FirstOrDefault(s=>s.Key.ToLower().Contains("site"))?.Value<br>
                                 @service.GetSettings().FirstOrDefault(s=>s.Key.ToLower().Contains("mail"))?.Value
                             </p>
                         </div>

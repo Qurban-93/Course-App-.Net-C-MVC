@@ -13,7 +13,7 @@ namespace MVCProject.ViewModels
         [Required, DataType(DataType.Password)]
         public string? Password { get; set; }
         [Required,Compare("Password"),DataType(DataType.Password)]
-        public string? RePassword { get; set; }
+        public string? RepeatPassword { get; set; }
         public bool RememmberMe { get; set; }          
     }
 }

@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MVCProject.Data;
+using MVCProject.Interfaces;
 using MVCProject.Models;
 using MVCProject.Service;
 
@@ -8,7 +9,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
 builder.Services.AddScoped<LayoutService>();
+
+builder.Services.AddScoped<ISendEmailService,SendEmailService>();
+
 builder.Services.AddDbContext<WebAppContext>(options => options.UseSqlServer
 (builder.Configuration.GetConnectionString("default")));
 builder.Services.AddIdentity<AppUser, IdentityRole>(
