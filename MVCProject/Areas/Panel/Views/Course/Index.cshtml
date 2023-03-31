@@ -1,0 +1,75 @@
+﻿@model List<Course>
+
+
+
+<div class="col-sm-12 col-xl-12">
+    <div class="bg-light rounded h-100 p-4">
+        <h1>Course List</h1>
+        @if (ViewBag.Succesful != null)
+        {
+            <span class="text-success">@ViewBag.Succesful</span>
+        }
+        <a asp-action="Create" asp-area="Panel"
+           class="btn btn-primary"><h6 style="color:white">Add Course</h6></a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Images</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Duration</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">Duration</th>
+                    <th scope="col">ClassDuration</th>
+                    <th scope="col">SkillLevel</th>
+                    <th scope="col">Language</th>
+                    <th scope="col">StudentsCount</th>
+                    <th scope="col">CoursePrice</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">AboutCourse</th>
+                    <th scope="col">HowToApply</th>
+                    <th scope="col">Certification</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Course item in Model)
+                {
+                    <tr>
+
+                        <td><img src="~/img/course/@item.ImageUrl" width="150" height="150" /></td>
+                        <td> @item.CourseName</td>
+                        <td> @item.Duration</td>
+                        <td> @item.StartDate.ToString("dd MMMM yyyy") </td>
+                        <td> @item.Duration</td>
+                        <td> @item.ClassDuration</td>
+                        <td> @item.SkillLevel </td>
+                        <td> @item.Language</td>
+                        <td> @item.StudentsCount</td>
+                        <td> @item.CoursePrice </td>
+                        <td> @item.Description.Substring(0,20)</td>
+                        <td> @item.AboutCourse.Substring(0,20)</td>
+                        <td> @item.HowToApply.Substring(0,20)</td>
+                        <td> @item.Certification.Substring(0,20)</td>
+                        <td>
+                            @*Edit button*@
+                            <a asp-action="edit"
+                           asp-area="Panel" asp-route-id="@item.Id" class="btn btn-warning rounded-pill m-2">
+                                <i class="fa-solid fa-pen"></i>
+                            </a>
+
+                            @*Details button*@
+                            <a asp-action="details" asp-area="Panel"
+                           asp-route-id="@item.Id" class="btn btn-info rounded-pill m-2">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </a>
+
+                            @*Delete button*@
+                            <a asp-action="delete" asp-area="Panel"
+                           asp-route-id="@item.Id" class="btn btn-danger rounded-pill m-2"><i class="fa-solid fa-trash-can"></i></a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,7 +1,6 @@
 ﻿@model List<Slider>
 
-
-
+ 
 <div class="col-sm-12 col-xl-12">
     <div class="bg-light rounded h-100 p-4">
         <h1>Slider List</h1>
@@ -43,6 +42,7 @@
                             @*Delete button*@
                             <a asp-action="delete" asp-area="Panel"
                            asp-route-id="@item.Id" class="btn btn-danger rounded-pill m-2"><i class="fa-solid fa-trash-can"></i></a>
+                            
                         </td>
                     </tr>
                 }

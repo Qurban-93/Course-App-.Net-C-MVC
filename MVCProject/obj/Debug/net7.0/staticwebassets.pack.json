@@ -725,6 +725,10 @@
       "PackagePath": "staticwebassets\\img\\course\\courses-details.jpg"
     },
     {
+      "Id": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\img\\course\\ee4408c8-917e-4e15-a3c3-cde4de1bb06aCharley-Casserly-2019-training-832x444.jpg",
+      "PackagePath": "staticwebassets\\img\\course\\ee4408c8-917e-4e15-a3c3-cde4de1bb06aCharley-Casserly-2019-training-832x444.jpg"
+    },
+    {
       "Id": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\img\\event\\Random.png",
       "PackagePath": "staticwebassets\\img\\event\\Random.png"
     },
