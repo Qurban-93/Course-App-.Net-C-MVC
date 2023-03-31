@@ -5,9 +5,21 @@
 <div class="col-sm-12 col-xl-12">
     <div class="bg-light rounded h-100 p-4">
         <h1>Course List</h1>
-        @if (ViewBag.Succesful != null)
+        @if (TempData["Added"] != null)
         {
-            <span class="text-success">@ViewBag.Succesful</span>
+            <div class="container">
+                <div class="alert alert-success" role="alert" style="text-align:center">
+                    <h3>Course Added !</h3>
+                </div>
+            </div>
+        }
+        @if (TempData["Edited"] != null)
+        {
+            <div class="container">
+                <div class="alert alert-success" role="alert" style="text-align:center">
+                    <h3>Course Updated !</h3>
+                </div>
+            </div>
         }
         <a asp-action="Create" asp-area="Panel"
            class="btn btn-primary"><h6 style="color:white">Add Course</h6></a>

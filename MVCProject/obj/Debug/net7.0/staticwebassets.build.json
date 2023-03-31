@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Dftz/KD92B8XR8F+E33O3XXAUKkA0YeTgT7b6boS/iw=",
+  "Hash": "Blqoq4SynddBIfn9InVEFlK5vmY/kVYvMQYAOya9IEk=",
   "Source": "MVCProject",
   "BasePath": "_content/MVCProject",
   "Mode": "Default",
@@ -1018,6 +1018,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\contact\\contact3.png"
+    },
+    {
+      "Identity": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\img\\course\\619d8889-91e1-4236-aba1-54b501042c37Charley-Casserly-2019-training-832x444.jpg",
+      "SourceId": "MVCProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\",
+      "BasePath": "_content/MVCProject",
+      "RelativePath": "img/course/619d8889-91e1-4236-aba1-54b501042c37Charley-Casserly-2019-training-832x444.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\course\\619d8889-91e1-4236-aba1-54b501042c37Charley-Casserly-2019-training-832x444.jpg"
     },
     {
       "Identity": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\img\\course\\course1.jpg",
