@@ -5,7 +5,7 @@
 <div class="col-sm-12 col-xl-12">
     <div class="bg-light rounded h-100 p-4">
         <h1>Slider List</h1>
-        <a asp-action="Create" asp-area="Admin"
+        <a asp-action="Create" asp-area="Panel"
            class="btn btn-primary"><h6 style="color:white">Add Slider</h6></a>
         <table class="table table-striped">
             <thead>
@@ -30,7 +30,7 @@
                         <td>
                             @*Edit button*@
                             <a asp-action="edit"
-                           asp-area="admin" asp-route-id="@item.Id" class="btn btn-warning rounded-pill m-2">
+                           asp-area="Panel" asp-route-id="@item.Id" class="btn btn-warning rounded-pill m-2">
                                 <i class="fa-solid fa-pen"></i>
                             </a>
 

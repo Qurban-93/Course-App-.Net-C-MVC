@@ -18,9 +18,9 @@
                                 <div class="slide-content-wrapper">
                                     <div class="slide-content">
                                         @*<h3>EDUCATION MAKES </h3>*@
-                                        <h2>@Html.Raw(item.Title)</h2>
+                                        <h2>@Html.Raw(item.Title.ToUpper())</h2>
                                         <p>@item.Description</p>
-                                        <a class="default-btn" href="about.html">Learn more</a>
+                                        <a class="default-btn" href="@item.ButtonUrl">Learn more</a>
                                     </div>
                                 </div>
                             </div>

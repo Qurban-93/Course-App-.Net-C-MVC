@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "pkzfKMaUflZniiNeE6IkAypyEwK3uyoM2IoqzN9+Wa8=",
+  "Hash": "WGKbbhq88FBzMAdrBUkCW3I3uOcmzHcDLwx2utrBA1M=",
   "Source": "MVCProject",
   "BasePath": "_content/MVCProject",
   "Mode": "Default",
@@ -1700,6 +1700,23 @@
       "OriginalItemSpec": "wwwroot\\img\\post\\post3.jpg"
     },
     {
+      "Identity": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\img\\slider\\45e6db7f-0f3e-4a16-890a-7839327670b5Students-on-campus-1920x820.jpg",
+      "SourceId": "MVCProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\",
+      "BasePath": "_content/MVCProject",
+      "RelativePath": "img/slider/45e6db7f-0f3e-4a16-890a-7839327670b5Students-on-campus-1920x820.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\slider\\45e6db7f-0f3e-4a16-890a-7839327670b5Students-on-campus-1920x820.jpg"
+    },
+    {
       "Identity": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\img\\slider\\home.png",
       "SourceId": "MVCProject",
       "SourceType": "Discovered",
@@ -1763,7 +1780,7 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
+      "CopyToOutputDirectory": "Always",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\slider\\slider3.jpg"
     },

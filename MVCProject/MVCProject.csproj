@@ -23,4 +23,10 @@
     <Folder Include="Areas\Panel\Models\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="wwwroot\img\slider\slider3.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>
