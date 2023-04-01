@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Blqoq4SynddBIfn9InVEFlK5vmY/kVYvMQYAOya9IEk=",
+  "Hash": "9rG5BXW7/UD5n2HaeFqbAY/AMMvsBWkV4lpp/zWxmYU=",
   "Source": "MVCProject",
   "BasePath": "_content/MVCProject",
   "Mode": "Default",
@@ -1020,12 +1020,12 @@
       "OriginalItemSpec": "wwwroot\\img\\contact\\contact3.png"
     },
     {
-      "Identity": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\img\\course\\619d8889-91e1-4236-aba1-54b501042c37Charley-Casserly-2019-training-832x444.jpg",
+      "Identity": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\img\\course\\2fa87a2d-52dc-4b66-a5c9-90cb0ebf18aaCharley-Casserly-2019-training-832x444.jpg",
       "SourceId": "MVCProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\",
       "BasePath": "_content/MVCProject",
-      "RelativePath": "img/course/619d8889-91e1-4236-aba1-54b501042c37Charley-Casserly-2019-training-832x444.jpg",
+      "RelativePath": "img/course/2fa87a2d-52dc-4b66-a5c9-90cb0ebf18aaCharley-Casserly-2019-training-832x444.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1034,7 +1034,24 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\course\\619d8889-91e1-4236-aba1-54b501042c37Charley-Casserly-2019-training-832x444.jpg"
+      "OriginalItemSpec": "wwwroot\\img\\course\\2fa87a2d-52dc-4b66-a5c9-90cb0ebf18aaCharley-Casserly-2019-training-832x444.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\img\\course\\7f0d836d-e836-4078-9f6c-87254a092d48Charley-Casserly-2019-training-832x444.jpg",
+      "SourceId": "MVCProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\",
+      "BasePath": "_content/MVCProject",
+      "RelativePath": "img/course/7f0d836d-e836-4078-9f6c-87254a092d48Charley-Casserly-2019-training-832x444.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\course\\7f0d836d-e836-4078-9f6c-87254a092d48Charley-Casserly-2019-training-832x444.jpg"
     },
     {
       "Identity": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\img\\course\\course1.jpg",
@@ -1224,12 +1241,12 @@
       "OriginalItemSpec": "wwwroot\\img\\course\\courses-details.jpg"
     },
     {
-      "Identity": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\img\\course\\ee4408c8-917e-4e15-a3c3-cde4de1bb06aCharley-Casserly-2019-training-832x444.jpg",
+      "Identity": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\img\\event\\cadbc2c8-ab98-4bf0-bcc7-2349ce139cf1university-events.jpg",
       "SourceId": "MVCProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\",
       "BasePath": "_content/MVCProject",
-      "RelativePath": "img/course/ee4408c8-917e-4e15-a3c3-cde4de1bb06aCharley-Casserly-2019-training-832x444.jpg",
+      "RelativePath": "img/event/cadbc2c8-ab98-4bf0-bcc7-2349ce139cf1university-events.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1238,7 +1255,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\course\\ee4408c8-917e-4e15-a3c3-cde4de1bb06aCharley-Casserly-2019-training-832x444.jpg"
+      "OriginalItemSpec": "wwwroot\\img\\event\\cadbc2c8-ab98-4bf0-bcc7-2349ce139cf1university-events.jpg"
     },
     {
       "Identity": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\img\\event\\event1.jpg",
@@ -2106,6 +2123,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\bootstrap.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\js\\JavaScript.js",
+      "SourceId": "MVCProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\",
+      "BasePath": "_content/MVCProject",
+      "RelativePath": "js/JavaScript.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\JavaScript.js"
     },
     {
       "Identity": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\js\\jquery.magnific-popup.js",

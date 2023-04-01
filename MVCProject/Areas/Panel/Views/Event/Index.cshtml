@@ -1,0 +1,68 @@
+﻿@model List<Event>
+
+
+<div class="col-sm-12 col-xl-12">
+    <div class="bg-light rounded h-100 p-4">
+        <h1>Events List</h1>
+        <a asp-action="Create" asp-area="Panel"
+           class="btn btn-primary"><h6 style="color:white">Add Event</h6></a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Images</th>
+                    <th scope="col">Event Name</th>
+                    <th scope="col">Start Time</th>
+                    <th scope="col">End Time</th>
+                    <th scope="col">Adress</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Speakers</th>
+                    <th scope="col">Settings</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Event item in Model)
+                {
+                    <tr>
+
+                        <td><img src="~/img/event/@item.ImageUrl" width="150" height="150" /></td>
+                        <td> @item.EventName</td>
+                        <td> @item.StartTime.ToString("dd MMMM yyyy hh:mm")</td>
+                        <td> @item.EndTime.ToString("dd MMMM yyyy hh:mm") </td>
+                        <td> @item.Adress</td>
+                        <td> @item.Description.Substring(0,20)</td>
+                        <td> 
+                            <ul>
+                                @foreach (var speakers in item.EventSpeakers)
+                                {
+                                    <li> @speakers.Speaker.FullName , @speakers.Speaker.Professions </li>
+                                }
+                            </ul>                          
+                        </td>
+
+                        <td>
+                            @*Edit button*@
+                            <a asp-action="edit"
+                           asp-area="Panel" asp-route-id="@item.Id" class="btn btn-warning rounded-pill m-2">
+                                <i class="fa-solid fa-pen"></i>
+                            </a>
+
+                            @*Details button*@
+                            <a asp-action="details" asp-area="Panel"
+                           asp-route-id="@item.Id" class="btn btn-info rounded-pill m-2">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </a>
+
+                            @*Delete button*@
+                            <a asp-action="delete" asp-area="Panel"
+                           asp-route-id="@item.Id" class="btn btn-danger rounded-pill m-2"><i class="fa-solid fa-trash-can"></i></a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

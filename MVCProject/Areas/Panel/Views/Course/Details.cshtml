@@ -1,0 +1,29 @@
+﻿@model Course
+
+<div class="container">
+    <div class="row mb-50">
+        <div>
+            <img src="~/img/course/@Model.ImageUrl" />
+        </div>
+        <div>
+            <h2 class="mb-30"> @Model.CourseName</h2>
+            <p><span class="text-danger">Description :</span> @Model.Description</p>
+            <p><span class="text-danger">AboutCourse :</span> @Model.AboutCourse</p>
+            <p><span class="text-danger">HowToApply :</span> @Model.HowToApply</p>
+            <p><spanclass="text-danger">Certification :</span> @Model.Certification</p>
+
+        </div>
+        <div>
+            <ul>
+                <li><span class="text-danger">Price:</span> @Model.CoursePrice $</li>
+                <li><span class="text-danger">Student Count:</span> @Model.StudentsCount</li>
+                <li><span class="text-danger">ClassDuration:</span> @Model.ClassDuration</li>
+                <li><span class="text-danger">Duration :</span> @Model.Duration</li>
+                <li><span class="text-danger">StartDate:</span> @Model.StartDate</li>
+                <li><span class="text-danger">SkillLevel:</span> @Model.SkillLevel</li>
+                <li><span class="text-danger">Language:</span> @Model.Language</li>
+            </ul>
+        </div>
+        <a class="btn btn-primary" asp-action="edit" asp-route-id="@Model.Id"> Edit Course </a>
+    </div>
+</div>

@@ -77,6 +77,7 @@ namespace MVCProject.Controllers
             email.Subject = "Email Confirmation";
             string body = string.Empty;
 
+
             using (StreamReader reader = new StreamReader("wwwroot/Template/Verify.html"))
             {
                 body = reader.ReadToEnd();

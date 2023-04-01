@@ -1,0 +1,45 @@
+﻿
+@model List<IdentityRole>
+
+<h1>USer Roles List</h1>
+<a asp-controller="Role" asp-action="create" asp-area="Panel"
+   class="btn btn-primary"><h6 style="color:white">Add new Role</h6></a>
+
+<div class="col-sm-12 col-xl-12">
+    <div class="bg-light rounded h-100 p-4">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Settings</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>
+                            @*Edit button*@
+                            <a asp-action="edit"
+                           asp-area="admin" asp-route-id="@item.Id" class="btn btn-warning rounded-pill m-2">
+                                <i class="fa-solid fa-pen"></i>
+                            </a>
+
+                            @*Details button*@
+                            <a asp-action="details" asp-area="admin"
+                           asp-route-id="@item.Id" class="btn btn-info rounded-pill m-2">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </a>
+
+                            @*Delete button*@
+                            <a asp-action="delete" asp-area="admin"
+                           asp-route-id="@item.Id" class="btn btn-danger rounded-pill m-2"><i class="fa-solid fa-trash-can"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

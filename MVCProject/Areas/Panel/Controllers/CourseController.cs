@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MVCProject.Data;
 using MVCProject.Extencions;
 using MVCProject.Models;
 using MVCProject.ViewModels.CourseVMs;
-using MVCProject.ViewModels.SliderVMs;
 
 namespace MVCProject.Areas.Panel.Controllers
 {
@@ -19,9 +19,9 @@ namespace MVCProject.Areas.Panel.Controllers
             _env = env;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View(_appContext.Courses.ToList());
+            return View( await _appContext.Courses.ToListAsync());
         }
 
         public IActionResult Create()
@@ -30,7 +30,7 @@ namespace MVCProject.Areas.Panel.Controllers
         }
         [HttpPost]
         [AutoValidateAntiforgeryToken]
-        public IActionResult Create(CourseCreateVM courseCreateVM)
+        public async Task<IActionResult> Create(CourseCreateVM courseCreateVM)
         {
             if (courseCreateVM == null) return NotFound();
             if (!ModelState.IsValid) return View();
@@ -73,15 +73,15 @@ namespace MVCProject.Areas.Panel.Controllers
             TempData["Added"] = "ok";
 
             _appContext.Courses.Add(newCourse);
-            _appContext.SaveChanges();
+            await _appContext.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Edit(int? id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || id == 0) return NotFound();
-            Course? course = _appContext.Courses.FirstOrDefault(c => c.Id == id);
+            Course? course = await _appContext.Courses.FirstOrDefaultAsync(c => c.Id == id);
             if (course == null) return NotFound();
 
 
@@ -106,10 +106,10 @@ namespace MVCProject.Areas.Panel.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int? id, CourseEditVM courseEditVM)
+        public async Task<IActionResult> Edit(int? id, CourseEditVM courseEditVM)
         {
             if (id == null || id == 0) return NotFound();
-            Course? course = _appContext.Courses.FirstOrDefault(c => c.Id == id);
+            Course? course = await _appContext.Courses.FirstOrDefaultAsync(c => c.Id == id);
 
             if (!ModelState.IsValid)
             {
@@ -170,10 +170,28 @@ namespace MVCProject.Areas.Panel.Controllers
             TempData["Edited"] = "ok";
 
            
-            _appContext.SaveChanges();
+            _appContext.SaveChangesAsync();
 
 
             return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null || id == 0) return NotFound();
+             _appContext.Courses.Remove( await _appContext.Courses.FirstOrDefaultAsync(c => c.Id == id));
+            await _appContext.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null || id == 0) return NotFound();
+            Course? course = await _appContext.Courses.FirstOrDefaultAsync(c=>c.Id == id);
+            if (course == null) return NotFound();
+            
+            return View(course);
         }
     }
 }

@@ -681,8 +681,12 @@
       "PackagePath": "staticwebassets\\img\\contact\\contact3.png"
     },
     {
-      "Id": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\img\\course\\619d8889-91e1-4236-aba1-54b501042c37Charley-Casserly-2019-training-832x444.jpg",
-      "PackagePath": "staticwebassets\\img\\course\\619d8889-91e1-4236-aba1-54b501042c37Charley-Casserly-2019-training-832x444.jpg"
+      "Id": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\img\\course\\2fa87a2d-52dc-4b66-a5c9-90cb0ebf18aaCharley-Casserly-2019-training-832x444.jpg",
+      "PackagePath": "staticwebassets\\img\\course\\2fa87a2d-52dc-4b66-a5c9-90cb0ebf18aaCharley-Casserly-2019-training-832x444.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\img\\course\\7f0d836d-e836-4078-9f6c-87254a092d48Charley-Casserly-2019-training-832x444.jpg",
+      "PackagePath": "staticwebassets\\img\\course\\7f0d836d-e836-4078-9f6c-87254a092d48Charley-Casserly-2019-training-832x444.jpg"
     },
     {
       "Id": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\img\\course\\course-bg.jpg",
@@ -729,12 +733,12 @@
       "PackagePath": "staticwebassets\\img\\course\\courses-details.jpg"
     },
     {
-      "Id": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\img\\course\\ee4408c8-917e-4e15-a3c3-cde4de1bb06aCharley-Casserly-2019-training-832x444.jpg",
-      "PackagePath": "staticwebassets\\img\\course\\ee4408c8-917e-4e15-a3c3-cde4de1bb06aCharley-Casserly-2019-training-832x444.jpg"
-    },
-    {
       "Id": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\img\\event\\Random.png",
       "PackagePath": "staticwebassets\\img\\event\\Random.png"
+    },
+    {
+      "Id": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\img\\event\\cadbc2c8-ab98-4bf0-bcc7-2349ce139cf1university-events.jpg",
+      "PackagePath": "staticwebassets\\img\\event\\cadbc2c8-ab98-4bf0-bcc7-2349ce139cf1university-events.jpg"
     },
     {
       "Id": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\img\\event\\event-details.jpg",
@@ -927,6 +931,10 @@
     {
       "Id": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\img\\testimonial\\testimonial.jpg",
       "PackagePath": "staticwebassets\\img\\testimonial\\testimonial.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\js\\JavaScript.js",
+      "PackagePath": "staticwebassets\\js\\JavaScript.js"
     },
     {
       "Id": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\js\\ajax-mail.js",
