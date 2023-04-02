@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "9rG5BXW7/UD5n2HaeFqbAY/AMMvsBWkV4lpp/zWxmYU=",
+  "Hash": "GgR5uuVuf18+jkHYwn/oLUi0y2uYzUR7fujTHTDYFCs=",
   "Source": "MVCProject",
   "BasePath": "_content/MVCProject",
   "Mode": "Default",
@@ -1834,6 +1834,23 @@
       "CopyToOutputDirectory": "Always",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\slider\\slider3.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\img\\teacher\\b703f9b2-aba6-4dd2-9612-4d6eae29f3eeGurban_Gurbanov-481x620.jpg",
+      "SourceId": "MVCProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\",
+      "BasePath": "_content/MVCProject",
+      "RelativePath": "img/teacher/b703f9b2-aba6-4dd2-9612-4d6eae29f3eeGurban_Gurbanov-481x620.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\teacher\\b703f9b2-aba6-4dd2-9612-4d6eae29f3eeGurban_Gurbanov-481x620.jpg"
     },
     {
       "Identity": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\img\\teacher\\teacher1.jpg",

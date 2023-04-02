@@ -1,0 +1,98 @@
+﻿@model List<Teacher>
+
+
+
+<div class="col-sm-12 col-xl-12">
+    <div class="bg-light rounded h-100 p-4">
+        <h1>Teacher List</h1>
+        @if (TempData["Added"] != null)
+        {
+            <div class="container">
+                <div class="alert alert-success" role="alert" style="text-align:center">
+                    <h3>Teacher Added !</h3>
+                </div>
+            </div>
+        }
+        @if (TempData["Edited"] != null)
+        {
+            <div class="container">
+                <div class="alert alert-success" role="alert" style="text-align:center">
+                    <h3>Teacher Updated !</h3>
+                </div>
+            </div>
+        }
+        <a asp-action="Create" asp-area="Panel"
+           class="btn btn-primary"><h6 style="color:white">Add Teacher</h6></a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Images</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Post</th>
+                    <th scope="col">Degree</th>
+                    <th scope="col">Experience</th>
+                    <th scope="col">Hobbies</th>
+                    <th scope="col">Faculty</th>
+                    <th scope="col">Mail</th>
+                    <th scope="col">PhoneNumber</th>
+                    <th scope="col">Scype</th>
+                    <th scope="col">AboutMe</th>
+                    <th scope="col">Skills</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Teacher item in Model)
+                {
+                    <tr>
+
+                        <td><img src="~/img/teacher/@item.ImageUrl" width="150" height="150" /></td>
+                        <td> @item.FullName</td>
+                        <td> @item.Post</td>
+                        <td> @item.Degree</td>
+                        <td> @item.Experience</td>
+                        <td> @item.Hobbies</td>
+                        <td> @item.Faculty </td>
+                        <td> @item.Mail</td>
+                        <td> @item.PhoneNumber</td>
+                        <td> @item.Skype </td>
+                        <td> @(item.AboutMe.Length > 20 ? item.AboutMe.Substring(0, 20) : item.AboutMe)</td>
+                        @if (item.Skills.Count > 0)
+                        {
+                            <td>
+                                <ul>
+                                    @foreach (var skill in item.Skills)
+                                    {
+                                        <li>@skill.Key : @skill.Value</li>
+                                    }
+                                </ul>
+                            </td>
+                        }
+                        else
+                        {
+                            <td> Skills Empty! </td>
+                        }
+                        <td>
+                            @*Edit button*@
+                            <a asp-action="edit"
+                           asp-area="Panel" asp-route-id="@item.Id" class="btn btn-warning rounded-pill m-2">
+                                <i class="fa-solid fa-pen"></i> Edit
+                            </a>
+
+                            @*Details button*@
+                            <a asp-action="details" asp-area="Panel"
+                           asp-route-id="@item.Id" class="btn btn-info rounded-pill m-2">
+                                <i class="fa-solid fa-circle-info"></i> Details
+                            </a>
+
+                            @*Delete button*@
+                            <a asp-action="delete" asp-area="Panel"
+                           asp-route-id="@item.Id" class="btn btn-danger rounded-pill m-2">
+                           <i class="fa-solid fa-trash-can"></i>Delete
+                       </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

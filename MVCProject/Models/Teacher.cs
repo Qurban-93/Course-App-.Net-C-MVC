@@ -1,4 +1,5 @@
 ﻿using MVCProject.Models.Base;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MVCProject.Models
 {
@@ -17,6 +18,7 @@ namespace MVCProject.Models
         public string? ImageUrl { get; set; }
         public List<SocialWebs>? SocialWebs { get; set; }
         public List<Skill>? Skills { get; set; }
+       
 
 
 

@@ -1,0 +1,70 @@
+﻿@model TeacherCreateVM
+
+<div class="bg-light rounded h-100 p-4">
+    <h6 class="mb-4">Slider Create Form</h6>
+    <form method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label asp-for="FullName" class="form-label"></label>
+            <input asp-for="FullName" class="form-control">
+            <span class="text-danger" asp-validation-for="FullName"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Post" class="form-label"></label>
+            <input asp-for="Post" class="form-control">
+            <span class="text-danger" asp-validation-for="Post"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Faculty" class="form-label"></label>
+            <input asp-for="Faculty" class="form-control">
+            <span class="text-danger" asp-validation-for="Faculty"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Degree" class="form-label"></label>
+            <input asp-for="Degree" class="form-control">
+            <span class="text-danger" asp-validation-for="Degree"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Experience" class="form-label"></label>
+            <input asp-for="Experience" class="form-control">
+            <span class="text-danger" asp-validation-for="Experience"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="PhoneNumber" class="form-label"></label>
+            <input asp-for="PhoneNumber" class="form-control">
+            <span class="text-danger" asp-validation-for="PhoneNumber"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="AboutMe" class="form-label"></label>
+            <input asp-for="AboutMe" class="form-control">
+            <span class="text-danger" asp-validation-for="AboutMe"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Hobbies" class="form-label"></label>
+            <input asp-for="Hobbies" class="form-control">
+            <span class="text-danger" asp-validation-for="Hobbies"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Mail" class="form-label"></label>
+            <input asp-for="Mail" type="email" class="form-control">
+            <span class="text-danger" asp-validation-for="Mail"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Skype" class="form-label"></label>
+            <input asp-for="Skype" class="form-control">
+            <span class="text-danger" asp-validation-for="Skype"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="SkillsAndLevels" class="form-label"></label>
+            <input asp-for="SkillsAndLevels" class="form-control" placeholder="Example: Language = 20 , ...">
+            <span class="text-danger" asp-validation-for="SkillsAndLevels"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Photo" class="form-label"></label>
+            <input asp-for="Photo" class="form-control">
+            <span class="text-danger" asp-validation-for="Photo"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Teacher</button>
+        <a asp-action="index" class="btn btn-primary">Cancel</a>
+    </form>
+</div>
+

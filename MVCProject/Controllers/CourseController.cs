@@ -12,8 +12,13 @@ namespace MVCProject.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+        public IActionResult Index(string? search)
         {
+            if(search != null)
+            {
+                List<Course> courseSearch = _context.Courses.Where(c=>c.CourseName.Contains(search)).ToList();
+                return View(courseSearch);
+            }
             List<Course> courses = _context.Courses.ToList();
             return View(courses);
         }

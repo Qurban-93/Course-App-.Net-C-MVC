@@ -72,6 +72,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGFuZWxcVmlld3NcU2xpZGVyXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Hp/Desktop/HomeTestMyself/MVCProject/MVCProject/Areas/Panel/Views/Teacher/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGFuZWxcVmlld3NcVGVhY2hlclxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hp/Desktop/HomeTestMyself/MVCProject/MVCProject/Areas/Panel/Views/Teacher/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGFuZWxcVmlld3NcVGVhY2hlclxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hp/Desktop/HomeTestMyself/MVCProject/MVCProject/Areas/Panel/Views/Teacher/EditSkill.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGFuZWxcVmlld3NcVGVhY2hlclxFZGl0U2tpbGwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hp/Desktop/HomeTestMyself/MVCProject/MVCProject/Areas/Panel/Views/Teacher/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGFuZWxcVmlld3NcVGVhY2hlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hp/Desktop/HomeTestMyself/MVCProject/MVCProject/Areas/Panel/Views/Teacher/SkillsAdd.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGFuZWxcVmlld3NcVGVhY2hlclxTa2lsbHNBZGQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Hp/Desktop/HomeTestMyself/MVCProject/MVCProject/Areas/Panel/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGFuZWxcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
