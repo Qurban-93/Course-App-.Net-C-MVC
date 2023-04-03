@@ -1,0 +1,28 @@
+﻿@model UserDetailsVM
+
+<div class="container">
+    <div class="col-12">
+        <div class="bg-light rounded h-100 p-4">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">User @Model.UserName</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">User Roles</th>
+                            @foreach (var item in Model.UserRoles)
+                            {
+                                <td>@item</td>
+                            }
+                            <td> <a class="btn btn-primary" asp-route-username="@Model.UserName" asp-action="edit">Edit</a> </td>
+                            <td> <a class="btn btn-primary" asp-action="index">Go To Back</a> </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

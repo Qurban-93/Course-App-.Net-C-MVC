@@ -1,0 +1,81 @@
+﻿@model UserIndexVM
+
+
+
+<h1>Users List</h1>
+
+<h6 class="mt-2">Seacrh User</h6>
+<form method="get">
+    <input name="search" /> <button type="submit">Search</button>
+</form>
+
+<div class="col-sm-12 col-xl-12">
+    <div class="bg-light rounded h-100 p-4">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Full Name</th>
+                    <th scope="col">User Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Change Status</th>
+                    <th scope="col">Settings</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (AppUser item in Model.AllUsers)
+                {
+                    <tr>
+
+                        <td>@item.FullName</td>
+                        <td>@item.UserName </td>
+                        <td>@item.Email </td>
+                        
+                            @if (item.Active)
+                            {
+                            <td class="text-success">Active </td>
+                            <td>
+                                @if (Model.Admins.Any(a=>a.UserName == item.UserName))
+                                {
+                                    <a role="button" class="btn btn-danger disabled"> Deactiv Now </a>
+                                }else{
+                                    <a asp-action="ChangeStatus" asp-route-id="@item.Id" role="button"
+                                    class="btn btn-danger "> Deactiv Now </a>
+                                }
+                            </td>
+                            }
+                            else
+                            {
+                                <td class="text-danger">DeActive</td>
+                                <td>
+                                    <a asp-action="ChangeStatus" asp-route-id="@item.Id"  role="button"
+                                    class="btn btn-success "> Activate Now </a>
+                                </td>
+
+                            }
+                        
+                        <td>
+                            @*Edit button*@
+                            <a asp-action="editrole"
+                           asp-area="admin" asp-route-id="@item.Id" class="btn btn-warning rounded-pill m-2">
+                                <i class="fa-solid fa-pen"></i>
+                            </a>
+
+                            @*Details button*@
+                            <a asp-action="details" asp-area="admin"
+                           asp-route-id="@item.Id" class="btn btn-info rounded-pill m-2">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </a>
+
+                            @*Delete button*@
+                            <a asp-action="delete" asp-area="admin"
+                           asp-route-id="@item.Id" class="btn btn-danger rounded-pill m-2"><i class="fa-solid fa-trash-can"></i></a>
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

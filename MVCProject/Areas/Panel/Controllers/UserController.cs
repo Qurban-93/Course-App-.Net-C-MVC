@@ -88,21 +88,21 @@ namespace WebApplication3.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        //public async Task<IActionResult> ChangeStatus(string id)
-        //{
-        //    if (string.IsNullOrEmpty(id)) return BadRequest();
-        //    AppUser? user = await _userManager.FindByIdAsync(id);
-        //    if (user == null) return BadRequest();
-        //    if (user.Active)
-        //    {
-        //        user.Active = false;
-        //    }
-        //    else
-        //    {
-        //        user.Active = true;
-        //    }
-        //    await _userManager.UpdateAsync(user);
-        //    return RedirectToAction(nameof(Index));
-        //}
+        public async Task<IActionResult> ChangeStatus(string id)
+        {
+            if (string.IsNullOrEmpty(id)) return BadRequest();
+            AppUser? user = await _userManager.FindByIdAsync(id);
+            if (user == null) return BadRequest();
+            if (user.Active)
+            {
+                user.Active = false;
+            }
+            else
+            {
+                user.Active = true;
+            }
+            await _userManager.UpdateAsync(user);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

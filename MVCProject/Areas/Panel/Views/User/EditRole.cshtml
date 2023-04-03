@@ -1,0 +1,30 @@
+﻿@model ChangeRoleVM
+
+<div class="container">
+    <div class="row justify-content-center flex-column">
+        <h6> User Full Name :@Model.User.FullName</h6>
+        <h6> User NAme :@Model.User.UserName</h6>
+        <h6>User email :@Model.User.Email</h6>
+
+        <form method="post">
+            <div class="d-flex flex-column">
+                @foreach (var item in Model.Roles)
+                {
+
+                    if (Model.UserRoles.Any(r => r == item.Name))
+                    {
+                        @item <input class="form-check-input" type="checkbox" name="roles" value="@item.Name" checked>
+                             
+                    }
+                    else
+                    {
+                        @item <input class="form-check-input" type="checkbox" name="roles" value="@item.Name">
+                             
+                    }
+
+                }
+            </div>
+            <button class="btn btn-primary" type="submit">Update Roles</button>
+        </form>
+    </div>
+</div>
