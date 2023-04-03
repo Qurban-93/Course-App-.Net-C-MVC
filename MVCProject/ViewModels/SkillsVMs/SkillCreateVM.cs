@@ -6,7 +6,7 @@ namespace MVCProject.ViewModels.SkillsVMs
     {
         [Required]
         public string? Key { get; set; }
-        [Required]
+        [Required,MaxLength(3)]
         public string? Value { get; set; }
         [Required]
         public int TeacherId { get; set; }

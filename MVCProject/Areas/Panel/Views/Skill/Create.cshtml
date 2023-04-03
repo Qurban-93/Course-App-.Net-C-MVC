@@ -1,0 +1,19 @@
+﻿@model SkillCreateVM
+
+<div class="bg-light rounded h-100 p-4">
+    <h6 class="mb-4">Basic Form</h6>
+    <form method="post">
+        <div class="mb-3">      
+            <label asp-for="Key" class="form-label">Skill Name</label>
+            <input asp-for=Key class="form-control">
+            <span class="text-danger" asp-validation-for="Key"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Value" class="form-label">Skill Level</label>
+            <input asp-for=Value class="form-control" placeholder="Max Value = 100">
+            <span class="text-danger" asp-validation-for="Value"></span>
+        </div>
+        <input asp-for="TeacherId" type="hidden"/>
+        <button type="submit" class="btn btn-primary">Edit Skill</button>
+    </form>
+</div>

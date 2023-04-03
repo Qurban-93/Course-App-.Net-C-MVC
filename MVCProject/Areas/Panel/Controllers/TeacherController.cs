@@ -89,7 +89,7 @@ namespace MVCProject.Areas.Panel.Controllers
 
                 }
 
-                value.Concat("%");
+                value = string.Concat(value,"%");
 
                 Skill skill = new Skill();
                 skill.Key = key;
@@ -211,60 +211,6 @@ namespace MVCProject.Areas.Panel.Controllers
             return RedirectToAction("index");
         }
 
-        public IActionResult SkillsAdd(int? id)
-        {
-            if (id == null || id == 0) return NotFound();
-            if (!_webAppContext.Teachers.Any(x => x.Id == id))
-            {
-                return NotFound();
-            }
-            SkillCreateVM skill = new SkillCreateVM();
-            skill.TeacherId = (int)id;
-
-
-            return View(skill);
-
-
-        }
-
-        [HttpPost]
-        [AutoValidateAntiforgeryToken]
-        public IActionResult SkillsAdd(SkillCreateVM skil)
-        {
-            if (skil == null) return NotFound();
-            if (!ModelState.IsValid) return View();
-            Skill newSkill = new Skill();
-            newSkill.TeacherId = skil.TeacherId;
-            newSkill.Value = skil.Value;
-            newSkill.Key = skil.Key;
-
-            _webAppContext.Skills.Add(newSkill);
-            _webAppContext.SaveChanges();
-
-
-            return RedirectToAction("index", "teacher");
-        }
-
-        public async Task<IActionResult> EditSkill(int? id)
-        {
-            if (id == null || id == 0) return NotFound();
-            if (!_webAppContext.Teachers.Any(t => t.Id == id)) return NotFound();
-            List<Skill> skills = await _webAppContext.Skills.Where(s => s.TeacherId == id).ToListAsync();
-
-            return View(skills);
-
-        }
-
-        [HttpPost]
-        [AutoValidateAntiforgeryToken]
-        public async Task<IActionResult> Edit(Skill skill)
-        {
-            if (skill == null) return NotFound();
-            if (!ModelState.IsValid) return View();
-
-            await _webAppContext.SaveChangesAsync();
-            return RedirectToAction("index,teacher");
-
-        }
+ 
     }
 }

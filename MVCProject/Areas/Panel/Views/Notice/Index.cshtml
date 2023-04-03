@@ -1,0 +1,32 @@
+﻿@model List<Notice>
+
+<div class="col-sm-12 col-xl-12">
+    <div class="bg-light rounded h-100 p-4">
+        <h6 class="mb-4">Notice Table</h6>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Content</th>                
+                </tr>
+            </thead>
+            <tbody>
+               @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.PublishDate.ToString("dd MMMM , yyyy hh:mm")</td>
+                        <td>@item.Content</td>
+                        <td> 
+                            <a asp-action="edit"
+                           asp-area="Panel" asp-route-id="@item.Id" class="btn btn-warning rounded-pill m-2">
+                                <i class="fa-solid fa-pen"></i>
+                            </a>                           
+                            <a asp-action="delete" asp-area="Panel"
+                           asp-route-id="@item.Id" class="btn btn-danger rounded-pill m-2">
+                           <i class="fa-solid fa-trash-can"></i></a></td>
+                    </tr>                 
+                }         
+            </tbody>
+        </table>
+    </div>
+</div>

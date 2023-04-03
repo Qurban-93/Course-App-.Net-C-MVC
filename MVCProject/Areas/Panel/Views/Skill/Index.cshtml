@@ -1,0 +1,45 @@
+﻿@model List<Teacher>
+
+
+<div class="col-sm-12 col-xl-12">
+    <div class="bg-light rounded h-100 p-4">
+        <h1>Teacher Skill List</h1>
+        <a asp-action="Create" asp-area="Panel"
+           class="btn btn-primary"><h6 style="color:white">Add Slider</h6></a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Teacher Name</th>
+                    <th scope="col">Skills List</th>                               
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Teacher item in Model)
+                {
+                    <tr>
+                        
+                        <td> @item.FullName <a class="btn btn-outline-primary"
+                            asp-action="create" asp-controller="skill" asp-route-id="@item.Id">Add Skill</a></td>
+                        <td> 
+                            <ul>
+                                @foreach (var skill in item.Skills)
+                                {
+                                    <li>@skill.Key : @skill.Value
+                                        <a asp-action="edit"
+                                   asp-area="Panel" asp-route-id="@skill.Id" class="btn btn-warning rounded-pill m-2"> Edit</a>      
+                                        <a asp-action="delete" asp-area="Panel"
+                                   asp-route-id="@skill.Id" class="btn btn-close rounded-pill m-2"></a>
+                                    </li>
+                                }
+                            </ul>
+                        </td>
+                        
+                     
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
