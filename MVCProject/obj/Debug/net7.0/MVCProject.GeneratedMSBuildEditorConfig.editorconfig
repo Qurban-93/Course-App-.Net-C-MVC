@@ -48,6 +48,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGFuZWxcVmlld3NcRXZlbnRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Hp/Desktop/HomeTestMyself/MVCProject/MVCProject/Areas/Panel/Views/Notice/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGFuZWxcVmlld3NcTm90aWNlXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hp/Desktop/HomeTestMyself/MVCProject/MVCProject/Areas/Panel/Views/Notice/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGFuZWxcVmlld3NcTm90aWNlXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Hp/Desktop/HomeTestMyself/MVCProject/MVCProject/Areas/Panel/Views/Notice/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGFuZWxcVmlld3NcTm90aWNlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
