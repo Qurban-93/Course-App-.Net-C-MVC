@@ -27,6 +27,8 @@ namespace MVCProject.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Settings>().HasIndex(s=>s.Key).IsUnique();
+
+            
             base.OnModelCreating(builder);
         }
 
