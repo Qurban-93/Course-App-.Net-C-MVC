@@ -58,18 +58,18 @@
                         <td>
                             @*Edit button*@
                             <a asp-action="editrole"
-                           asp-area="admin" asp-route-id="@item.Id" class="btn btn-warning rounded-pill m-2">
+                           asp-route-id="@item.Id" class="btn btn-warning rounded-pill m-2">
                                 <i class="fa-solid fa-pen"></i>
                             </a>
 
                             @*Details button*@
-                            <a asp-action="details" asp-area="admin"
+                            <a asp-action="details" 
                            asp-route-id="@item.Id" class="btn btn-info rounded-pill m-2">
                                 <i class="fa-solid fa-circle-info"></i>
                             </a>
 
                             @*Delete button*@
-                            <a asp-action="delete" asp-area="admin"
+                            <a asp-action="delete" 
                            asp-route-id="@item.Id" class="btn btn-danger rounded-pill m-2"><i class="fa-solid fa-trash-can"></i></a>
                         </td>
                     </tr>

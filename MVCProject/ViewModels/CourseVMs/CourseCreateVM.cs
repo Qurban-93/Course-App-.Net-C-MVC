@@ -7,6 +7,8 @@ namespace MVCProject.ViewModels.CourseVMs
         [Required]
         public string? CourseName { get; set; }
         [Required]
+        public int[]? CategoryId { get; set; }
+        [Required]
         public DateTime StartDate { get; set; }
         [Required]
         public string? Duration { get; set; }

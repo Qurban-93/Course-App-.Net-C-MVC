@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace MVCProject.Areas.Panel.Controllers
 {
     [Area("Panel")]
+    [Authorize(Roles = "Admin,SuperAdmin")]
     public class RoleController : Controller
     {
         private readonly RoleManager<IdentityRole> _roleManager;

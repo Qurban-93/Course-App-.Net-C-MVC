@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic;
@@ -12,10 +13,12 @@ using MVCProject.ViewModels.CourseVMs;
 using MVCProject.ViewModels.EventVMs;
 using MVCProject.ViewModels.SliderVMs;
 using NuGet.Packaging;
+using System.Data;
 
 namespace MVCProject.Areas.Panel.Controllers
 {
     [Area("Panel")]
+    [Authorize(Roles = "Admin,SuperAdmin")]
     public class EventController : Controller
     {
         private readonly WebAppContext _appContext;
@@ -31,7 +34,8 @@ namespace MVCProject.Areas.Panel.Controllers
 
         public IActionResult Index()
         {
-            List<Event> events = _appContext.Events.Include(e => e.EventSpeakers).ThenInclude(es => es.Speaker).ToList();
+            List<Event> events = _appContext.Events
+                .Include(e => e.EventSpeakers).ThenInclude(es => es.Speaker).OrderByDescending(e=>e.Id).ToList();
             return View(events);
         }
 

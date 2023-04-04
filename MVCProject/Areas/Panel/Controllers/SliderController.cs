@@ -1,13 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MVCProject.Data;
 using MVCProject.Extencions;
 using MVCProject.Models;
 using MVCProject.ViewModels.SliderVMs;
+using System.Data;
 
 namespace MVCProject.Areas.Panel.Controllers
 {
     [Area("Panel")]
+    [Authorize(Roles = "Admin,SuperAdmin")]
     public class SliderController : Controller
     {
         private readonly WebAppContext _appContext;

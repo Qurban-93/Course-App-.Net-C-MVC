@@ -1,7 +1,7 @@
 ﻿@model CourseEditVM
 
 <div class="bg-light rounded h-100 p-4">
-    <h6 class="mb-4">Slider Create Form</h6>
+    <h6 class="mb-4">Course Create Form</h6>
     <form method="post" enctype="multipart/form-data">
         <div class="mb-3">
             <img src="~/img/course/@Model.ImageUrl" width="150" height="150" />
@@ -10,6 +10,11 @@
             <label asp-for="CourseName" class="form-label"></label>
             <input asp-for="CourseName" class="form-control">
             <span class="text-danger" asp-validation-for="CourseName"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="CategoriesId" class="form-label"></label>
+            <select asp-for="CategoriesId" asp-items="@ViewBag.Categories" class="form-control"></select>
+            <span class="text-danger" asp-validation-for="CategoriesId"></span>
         </div>
         <div class="mb-3">
             <label asp-for="StartDate" class="form-label"></label>

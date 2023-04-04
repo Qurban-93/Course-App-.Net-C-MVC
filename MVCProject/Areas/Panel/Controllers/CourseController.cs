@@ -1,13 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MVCProject.Data;
 using MVCProject.Extencions;
 using MVCProject.Models;
 using MVCProject.ViewModels.CourseVMs;
+using System.Data;
 
 namespace MVCProject.Areas.Panel.Controllers
 {
     [Area("Panel")]
+    [Authorize(Roles = "Admin,SuperAdmin")]
     public class CourseController : Controller
     {
         private readonly WebAppContext _appContext;
@@ -21,17 +25,21 @@ namespace MVCProject.Areas.Panel.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View( await _appContext.Courses.ToListAsync());
+            return View( await _appContext.Courses
+                .Include(c=>c.CourseCategories).ThenInclude(c=>c.Category)
+                .ToListAsync());
         }
 
         public IActionResult Create()
         {
+            ViewBag.Categories = new SelectList(_appContext.Categories.ToList(),"Id","CategoryName");
             return View();
         }
         [HttpPost]
         [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Create(CourseCreateVM courseCreateVM)
         {
+            ViewBag.Categories = new SelectList(_appContext.Categories.ToList(), "Id", "CategoryName");
             if (courseCreateVM == null) return NotFound();
             if (!ModelState.IsValid) return View();
             if(_appContext.Courses.Any(c=>c.CourseName.Trim().ToLower() == courseCreateVM.CourseName.Trim().ToLower()))
@@ -55,6 +63,14 @@ namespace MVCProject.Areas.Panel.Controllers
                 ModelState.AddModelError("Photo", "Sekilin hecimi 5 Mgb artiq ola bilmez !");
                 return View();
             }
+            List<CourseCategory> categories = new List<CourseCategory>();
+            foreach (var item in courseCreateVM.CategoryId)
+            {
+                CourseCategory category = new CourseCategory();
+                category.CategoryId = item;
+                categories.Add(category);
+
+            }
 
             Course newCourse = new Course();
             newCourse.ImageUrl = courseCreateVM.Photo.SaveImage(_env, "img", "course");
@@ -70,6 +86,7 @@ namespace MVCProject.Areas.Panel.Controllers
             newCourse.HowToApply = courseCreateVM.HowToApply;
             newCourse.SkillLevel = courseCreateVM.SkillLevel;
             newCourse.Language = courseCreateVM.Language;
+            newCourse.CourseCategories = categories;
             TempData["Added"] = "ok";
 
             _appContext.Courses.Add(newCourse);
@@ -80,6 +97,7 @@ namespace MVCProject.Areas.Panel.Controllers
 
         public async Task<IActionResult> Edit(int? id)
         {
+            ViewBag.Categories = new SelectList(_appContext.Categories.ToList(), "Id", "CategoryName");
             if (id == null || id == 0) return NotFound();
             Course? course = await _appContext.Courses.FirstOrDefaultAsync(c => c.Id == id);
             if (course == null) return NotFound();
@@ -108,8 +126,10 @@ namespace MVCProject.Areas.Panel.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int? id, CourseEditVM courseEditVM)
         {
+            ViewBag.Categories = new SelectList(_appContext.Categories.ToList(), "Id", "CategoryName");
             if (id == null || id == 0) return NotFound();
-            Course? course = await _appContext.Courses.FirstOrDefaultAsync(c => c.Id == id);
+            Course? course = await _appContext.Courses.Include(c=>c.CourseCategories)
+                .FirstOrDefaultAsync(c => c.Id == id);
 
             if (!ModelState.IsValid)
             {
@@ -155,6 +175,25 @@ namespace MVCProject.Areas.Panel.Controllers
 
                 course.ImageUrl = courseEditVM.Photo.SaveImage(_env,"img","course");
             }
+
+
+            if(courseEditVM.CategoriesId != null) 
+            { 
+                List<CourseCategory> categories = new List<CourseCategory>();
+
+                foreach (var item in courseEditVM.CategoriesId)
+                {
+                    CourseCategory courseCategory = new();
+                    courseCategory.CategoryId = item;
+                    categories.Add(courseCategory);
+
+                }
+
+                if(course.CourseCategories.Count> 0) { course.CourseCategories.Clear(); }
+                course.CourseCategories= categories;
+            
+            }
+           
             course.CourseName = courseEditVM.CourseName;
             course.AboutCourse = courseEditVM.AboutCourse;
             course.Duration = courseEditVM.Duration;

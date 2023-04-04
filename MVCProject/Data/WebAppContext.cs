@@ -22,6 +22,8 @@ namespace MVCProject.Data
         public DbSet<SocialWebs> SocialWebs { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<Settings> Settings { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<CourseCategory> CourseCategories { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder builder)

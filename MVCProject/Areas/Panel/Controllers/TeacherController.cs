@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MVCProject.Data;
 using MVCProject.Extencions;
@@ -6,10 +7,12 @@ using MVCProject.Models;
 using MVCProject.ViewModels.SkillsVMs;
 using MVCProject.ViewModels.SliderVMs;
 using MVCProject.ViewModels.TeacherVMs;
+using System.Data;
 
 namespace MVCProject.Areas.Panel.Controllers
 {
     [Area("panel")]
+    [Authorize(Roles = "Admin,SuperAdmin")]
     public class TeacherController : Controller
     {
         private readonly WebAppContext _webAppContext;

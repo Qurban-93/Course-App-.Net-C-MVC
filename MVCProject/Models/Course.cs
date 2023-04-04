@@ -17,6 +17,8 @@ namespace MVCProject.Models
         public string? HowToApply { get; set; }
         public string? Certification { get; set; }
         public string? ImageUrl { get; set; }
+        public List<CourseCategory>? CourseCategories { get; set; }
+
 
 
 

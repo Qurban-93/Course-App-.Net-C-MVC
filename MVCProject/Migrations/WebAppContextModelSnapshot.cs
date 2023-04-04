@@ -124,6 +124,22 @@ namespace MVCProject.Migrations
                     b.ToTable("Blogs");
                 });
 
+            modelBuilder.Entity("MVCProject.Models.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CategoryName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
+                });
+
             modelBuilder.Entity("MVCProject.Models.Comment", b =>
                 {
                     b.Property<int>("Id")
@@ -204,6 +220,29 @@ namespace MVCProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Courses");
+                });
+
+            modelBuilder.Entity("MVCProject.Models.CourseCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("CourseId");
+
+                    b.ToTable("CourseCategories");
                 });
 
             modelBuilder.Entity("MVCProject.Models.Event", b =>
@@ -640,6 +679,25 @@ namespace MVCProject.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("MVCProject.Models.CourseCategory", b =>
+                {
+                    b.HasOne("MVCProject.Models.Category", "MyProperty")
+                        .WithMany("CourseCategories")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MVCProject.Models.Course", "Course")
+                        .WithMany("CourseCategories")
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Course");
+
+                    b.Navigation("MyProperty");
+                });
+
             modelBuilder.Entity("MVCProject.Models.EventSpeakers", b =>
                 {
                     b.HasOne("MVCProject.Models.Event", "Event")
@@ -738,6 +796,16 @@ namespace MVCProject.Migrations
             modelBuilder.Entity("MVCProject.Models.Blog", b =>
                 {
                     b.Navigation("Comments");
+                });
+
+            modelBuilder.Entity("MVCProject.Models.Category", b =>
+                {
+                    b.Navigation("CourseCategories");
+                });
+
+            modelBuilder.Entity("MVCProject.Models.Course", b =>
+                {
+                    b.Navigation("CourseCategories");
                 });
 
             modelBuilder.Entity("MVCProject.Models.Event", b =>

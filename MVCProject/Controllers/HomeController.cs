@@ -30,7 +30,7 @@ namespace MVCProject.Controllers
             List<Blog> blogs = _context.Blogs.Take(3).ToList();
             List<Event> events = _context.Events
                 .Include(e => e.EventSpeakers)
-                .ThenInclude(es => es.Speaker)
+                .ThenInclude(es => es.Speaker).OrderBy(e=>e.StartTime)
                 .ToList();
             HomeVM homeVM = new HomeVM();
             homeVM.Sliders = sliders;

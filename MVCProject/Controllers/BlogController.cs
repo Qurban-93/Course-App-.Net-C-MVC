@@ -18,7 +18,7 @@ namespace MVCProject.Controllers
             List<Blog> blogs = await _context.Blogs
                 .Skip(take*(page-1))
                 .Take(take)
-                .Include(b=>b.Comments)
+                .Include(b=>b.Comments.OrderByDescending(c=>c.Id)).OrderByDescending(b=>b.Id)
                 .ToListAsync();
             ViewBag.Pages = (int)Math.Ceiling((decimal)_context.Blogs.Count() / take);
             ViewBag.CurrentPage = page;

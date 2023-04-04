@@ -19,7 +19,8 @@ namespace MVCProject.Controllers
                 List<Course> courseSearch = _context.Courses.Where(c=>c.CourseName.Contains(search)).ToList();
                 return View(courseSearch);
             }
-            List<Course> courses = _context.Courses.ToList();
+            List<Course> courses = _context.Courses.OrderByDescending(c=>c.Id)
+                .ToList();
             return View(courses);
         }
 
@@ -28,6 +29,7 @@ namespace MVCProject.Controllers
             if(id == null || id == 0) return NotFound();
             Course? course = await _context.Courses.FirstOrDefaultAsync(c => c.Id == id);
             if(course == null) return NotFound();
+            ViewBag.Categories = _context.Categories.ToList();
             ViewBag.Blogs = _context.Blogs.OrderByDescending(c => c.Id).Take(4).ToList();
 
             return View(course);

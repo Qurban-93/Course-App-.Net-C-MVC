@@ -53,6 +53,11 @@
                         <ul>
                             @if (User.Identity.IsAuthenticated)
                             {
+                                if(User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
+                                {
+                                    <li><a asp-action="index" asp-controller="dashboard" asp-area="Panel">Admini Panel</a></li>
+
+                                }
                                 <li><a asp-action="index" asp-controller="account">@User.Identity.Name</a></li>
                                 <li><a asp-action="logout" asp-controller="account">Log Out</a></li>
                             }

@@ -26,9 +26,9 @@
     <link rel="stylesheet" href="~/css/material-design-iconic-font.min.css">
     <link rel="stylesheet" href="~/css/style.css">
     <link rel="stylesheet" href="~/css/responsive.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
-    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="~/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
@@ -48,18 +48,24 @@
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="header-top-right text-right">
                             <ul>
-                            @if (User.Identity.IsAuthenticated)
-                            {
-                                <li><a asp-action="index" asp-controller="account">@User.Identity.Name</a></li>
-                                <li><a asp-action="logout" asp-controller="account">Log Out</a></li>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    if (User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
+                                    {
+                                        <li><a asp-action="index" asp-controller="dashboard" asp-area="Panel">Admini Panel</a></li>
+
+                                    }
+                                    <li><a asp-action="index" asp-controller="account">@User.Identity.Name</a></li>
+                                    <li><a asp-action="logout" asp-controller="account">Log Out</a></li>
+
                                 }
                                 else
                                 {
                                     <li><a asp-action="login" asp-controller="account">login</a></li>
                                     <li><a asp-action="register" asp-controller="account">signup</a></li>
                                 }
-                            
-                        </ul>
+
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -80,21 +86,21 @@
                                 <nav>
                                     <ul>
                                         <li>
-                                            <a asp-action="index" asp-controller="home">Home</a>                                          
+                                            <a asp-action="index" asp-controller="home">Home</a>
                                         </li>
                                         <li><a asp-action="index" asp-controller="about">About</a></li>
                                         <li>
-                                            <a asp-action="index" asp-controller="course">courses</a>                                         
+                                            <a asp-action="index" asp-controller="course">courses</a>
                                         </li>
                                         <li>
                                             <a asp-action="index" asp-controller="event">event</a>
-                                        
+
                                         </li>
                                         <li class="hidden-sm">
-                                            <a asp-action="index" asp-controller="teacher">teacher</a>                                         
+                                            <a asp-action="index" asp-controller="teacher">teacher</a>
                                         </li>
                                         <li>
-                                            <a asp-action="index" asp-controller="blog">blog</a>                                           
+                                            <a asp-action="index" asp-controller="blog">blog</a>
                                         </li>
                                         <li><a asp-action="index" asp-controller="contact">Contact</a></li>
                                         <li><a href="#">Buy Now</a>
@@ -131,7 +137,7 @@
         </div>
     </header>
     <!-- Header Area End -->
-     @RenderBody()
+    @RenderBody()
 
     <footer class="footer-area">
         <div class="main-footer">
@@ -182,12 +188,16 @@
                     <div class="col-md-3 col-sm-6 col-xs-12">
                         <div class="single-widget">
                             <h3>get in touch</h3>
-                            <p>Your address goes here,<br>
-                                @service.GetSettings().FirstOrDefault(s=>s.Key.ToLower().Contains("adress"))?.Value</p>
-                            <p>@service.GetSettings().FirstOrDefault(s=>s.Key.ToLower().Contains("phone2"))?.Value"
+                            <p>
+                                Your address goes here,<br>
+                                @service.GetSettings().FirstOrDefault(s=>s.Key.ToLower().Contains("adress"))?.Value
+                            </p>
+                            <p>
+                                @service.GetSettings().FirstOrDefault(s=>s.Key.ToLower().Contains("phone2"))?.Value"
                                 <br>@service.GetSettings().FirstOrDefault(s=>s.Key.ToLower().Contains("phone3"))?.Value"
                             </p>
-                            <p>@service.GetSettings().FirstOrDefault(s=>s.Key.ToLower().Contains("mail"))?.Value
+                            <p>
+                                @service.GetSettings().FirstOrDefault(s=>s.Key.ToLower().Contains("mail"))?.Value
                                 <br>@service.GetSettings().FirstOrDefault(s=>s.Key.ToLower().Contains("site"))?.Value
                             </p>
                         </div>
@@ -206,9 +216,9 @@
         </div>
     </footer>
     <!-- Footer End -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" 
-    integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" 
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+            integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="~/js/javascript.js"></script>
     <script src="~/js/vendor/jquery-1.12.0.min.js"></script>
     <script src="~/js/bootstrap.min.js"></script>

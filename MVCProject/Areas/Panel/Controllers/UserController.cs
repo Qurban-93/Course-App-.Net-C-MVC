@@ -1,12 +1,15 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MVCProject.Models;
 using MVCProject.ViewModels.UserVMs;
+using System.Data;
 
 namespace WebApplication3.Areas.Admin.Controllers
 {
     [Area("Panel")]
+    [Authorize(Roles = "Admin,SuperAdmin")]
     public class UserController : Controller
     {
         UserManager<AppUser> _userManager;

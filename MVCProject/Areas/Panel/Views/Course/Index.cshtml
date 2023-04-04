@@ -1,7 +1,5 @@
 ﻿@model List<Course>
 
-
-
 <div class="col-sm-12 col-xl-12">
     <div class="bg-light rounded h-100 p-4">
         <h1>Course List</h1>
@@ -40,6 +38,7 @@
                     <th scope="col">AboutCourse</th>
                     <th scope="col">HowToApply</th>
                     <th scope="col">Certification</th>
+                    <th scope="col">Categories</th>
                 </tr>
             </thead>
             <tbody>
@@ -61,6 +60,21 @@
                         <td> @item.AboutCourse.Substring(0,20)</td>
                         <td> @item.HowToApply.Substring(0,20)</td>
                         <td> @item.Certification.Substring(0,20)</td>
+                        <td>
+                            @if (item.CourseCategories.Count != 0)
+                            {
+                                <ul>
+                                    @foreach (var category in item.CourseCategories)
+                                    {
+                                        <li>@category.Category.CategoryName</li>
+                                    }
+                                </ul>
+                            }
+                            else
+                            {
+                                <span>Empty !</span>
+                            }
+                        </td>
                         <td>
                             @*Edit button*@
                             <a asp-action="edit"

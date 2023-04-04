@@ -15,12 +15,14 @@ namespace MVCProject.Controllers
 
         public async Task<IActionResult> Index()
         {
-            List<Event> events = _context.Events.ToList();
+            List<Event> events = _context.Events.OrderByDescending(c => c.Id)
+                .ToList();
             return View(events);
         }
 
         public async Task<IActionResult> Details(int? id)
         {
+            ViewBag.Categories = _context.Categories.ToList();
             if (id == null || id == 0)  return NotFound(); 
             Event event1 = await _context.Events
                 .Include(e=>e.EventSpeakers).ThenInclude(es=>es.Speaker)

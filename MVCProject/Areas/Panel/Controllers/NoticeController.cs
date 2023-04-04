@@ -1,11 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MVCProject.Data;
 using MVCProject.Models;
 using MVCProject.ViewModels.NoticeVMs;
+using System.Data;
 
 namespace MVCProject.Areas.Panel.Controllers
 {
     [Area("Panel")]
+    [Authorize(Roles = "Admin,SuperAdmin")]
     public class NoticeController : Controller
     {
         private readonly WebAppContext _webAppContext;
