@@ -35,7 +35,7 @@ namespace MVCProject.Controllers
 
                 return View(user);
             }
-            return View();
+            return RedirectToAction("login");
         }
         public async Task<IActionResult> Register()
         {

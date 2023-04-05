@@ -605,6 +605,10 @@
       "PackagePath": "staticwebassets\\fonts\\ionicons28b5.woff"
     },
     {
+      "Id": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\img\\User\\Random.png",
+      "PackagePath": "staticwebassets\\img\\User\\Random.png"
+    },
+    {
       "Id": "C:\\Users\\Hp\\Desktop\\HomeTestMyself\\MVCProject\\MVCProject\\wwwroot\\img\\about\\about.png",
       "PackagePath": "staticwebassets\\img\\about\\about.png"
     },

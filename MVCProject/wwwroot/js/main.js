@@ -1,6 +1,10 @@
 (function ($) {
     "use strict";
 
+    $("#btnAddImg").on("click", function () {
+        console.log("salam")
+    })
+
     /*------------------------------------
         Sticky Menu 
     --------------------------------------*/
