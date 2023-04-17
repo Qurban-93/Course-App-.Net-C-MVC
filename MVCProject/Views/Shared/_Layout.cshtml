@@ -1,5 +1,6 @@
 ﻿@inject MVCProject.Service.LayoutService service
 
+
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -33,6 +34,7 @@
     <script src="~/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
+ 
     <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -60,7 +62,7 @@
                                 }
                                 <li><a asp-action="index" asp-controller="account">@User.Identity.Name</a></li>
                                 <li><a asp-action="logout" asp-controller="account">Log Out</a></li>
-                            }
+                            }                         
                             else
                             {
                                 <li><a asp-action="login" asp-controller="account">login</a></li>
@@ -214,6 +216,8 @@
     <script src="~/js/jquery.nicescroll.min.js"></script>
     <script src="~/js/plugins.js"></script>
     <script src="~/js/main.js"></script>
+
+ 
 </body>
 
 <!-- Mirrored from demo.devitems.com/eduhome/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 21 Jun 2020 19:44:03 GMT -->

@@ -1,6 +1,13 @@
 ﻿@model AppUser
 
-<section style="background-color: #eee;">
+
+@if(Model == null)
+{
+    <h1>saqol</h1>
+}
+else
+{
+    <section style="background-color: #eee;">
     <div class="container py-5">
         <div class="row">
             <div class="col-lg-4">
@@ -12,7 +19,7 @@
                         <p class="text-muted mb-4">@(Model.Address == null ? "Please add your address" : Model.Address)</p>
                         <div class="d-flex justify-content-center mb-10 mt-10">
                             <button type="button" id="btnAddImg" class="btn btn-primary mb-10">@(Model.Address == null ? "Add Photo" : "Edit Photo")</button>
-                           
+
                         </div>
                     </div>
                 </div>
@@ -166,3 +173,6 @@
         </div>
     </div>
 </section>
+}
+
+

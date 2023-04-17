@@ -6,6 +6,15 @@ using MVCProject.Interfaces;
 using MVCProject.Models;
 using MVCProject.ViewModels;
 using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
+using Facebook;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Configuration;
+using System.IO;
+using Microsoft.AspNetCore.DataProtection;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace MVCProject.Controllers
 {
@@ -15,18 +24,127 @@ namespace MVCProject.Controllers
         private readonly SignInManager<AppUser> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly ISendEmailService _sendEmailService;
+        private readonly IConfiguration _config;
+        private readonly ILogger<AccountController> _logger;
+    
 
-        public AccountController(UserManager<AppUser> userManager, 
+        public AccountController(UserManager<AppUser> userManager,
             SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager,
-            ISendEmailService sendEmailService)
+            ISendEmailService sendEmailService, IConfiguration config, ILogger<AccountController> logger)
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _roleManager = roleManager;
             _sendEmailService = sendEmailService;
-
+            _config = config;
+            _logger = logger;
         }
 
+        //Facebook External Identity Actions
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public IActionResult ExternalLogin(string provider, string returnUrl = null)
+        {
+            // Request a redirect to the external login provider.
+            var redirectUrl = Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl });
+            var properties = _signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
+            return Challenge(properties, provider);
+        }
+        [AllowAnonymous]
+        public async Task<IActionResult> ExternalLoginCallback(string returnUrl = null, string remoteError = null)
+        {
+            if (remoteError != null)
+            {
+                ModelState.AddModelError(string.Empty, $"Error from external provider: {remoteError}");
+                return RedirectToAction("Login");
+            }
+            var info = await _signInManager.GetExternalLoginInfoAsync();
+            if (info == null)
+            {
+                return RedirectToAction("Login");
+            }
+            var result = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, isPersistent: false, bypassTwoFactor: true);
+            if (result.Succeeded)
+            {
+                _logger.LogInformation("User logged in with {Name} provider.", info.LoginProvider);
+                return RedirectToLocal(returnUrl);
+            }
+            if (result.IsLockedOut)
+            {
+                return RedirectToAction("Lockout");
+            }
+            else
+            {
+                // If the user does not have an account, ask the user to create an account.
+                ViewData["ReturnUrl"] = returnUrl;
+                ViewData["LoginProvider"] = info.LoginProvider;
+                var email = info.Principal.FindFirstValue(ClaimTypes.Email);
+                var name = info.Principal.FindFirstValue(ClaimTypes.Name);
+                
+
+                return View("ExternalLogin", new ExternalLoginViewModel { 
+                    Email = email ,
+                    Name = name,                             
+                });
+            }
+        }
+        private IActionResult RedirectToLocal(string returnUrl)
+        {
+            if (Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+            else
+            {
+                return RedirectToAction(nameof(HomeController.Index), "Home");
+            }
+        }
+ 
+
+
+        //Google External Identity Actions
+        public async Task GoogleLogin()
+        {
+            await HttpContext.ChallengeAsync(GoogleDefaults.AuthenticationScheme, new AuthenticationProperties()
+            {
+                RedirectUri = Url.Action("GoogleResponse")
+            });
+        }
+
+        public async Task<IActionResult> GoogleResponse()
+        {
+            var result = await HttpContext.AuthenticateAsync("Identity.External");
+
+            if(result == null)
+            {
+                return RedirectToAction("Index","Home");
+            }
+
+            var claims = result.Principal.Identities.FirstOrDefault().Claims.Select(claim => new
+            {
+                claim.Issuer,
+                claim.OriginalIssuer,
+                claim.Type,
+                claim.Value 
+            });
+            return Json(claims);
+        }
+
+        public async Task<IActionResult> GoogleLogout()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("login");
+        }
+
+
+
+
+
+
+
+
+        //Internal Registration Actions
         public async Task<IActionResult> Index()
         {
             if (User.Identity.IsAuthenticated)
@@ -187,6 +305,7 @@ namespace MVCProject.Controllers
 
                 if (ReturnUrl != null) return Redirect(ReturnUrl);
 
+                
                 return RedirectToAction("Index", "Home");
             }
 

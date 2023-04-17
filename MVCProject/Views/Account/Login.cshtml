@@ -53,10 +53,16 @@
                                         <label for="remember">Remember me</label>
                                         <a asp-action="ForgotPassword">Forgot Password?</a>
                                     </div>
-                                    <button type="submit" class="default-btn">Login</button>
+                                    <button type="submit" class="default-btn">Login</button>                     
                                 </div>
                             </form>
                         </div>
+                          <form asp-controller="Account" asp-action="ExternalLogin" method="post" asp-route-provider="Facebook">
+                        <div class="button-box">
+                        <button type="submit" class="default-btn" style="margin-top:20px;">Login with Facebook</button>
+                        </div>
+                        </form>
+                        <div class="button-box"><a class="default-btn" style="margin-top:20px;" asp-action="googlelogin" asp-controller="account">Login with Google</a></div>
                     </div>
                 </div>
             </div>

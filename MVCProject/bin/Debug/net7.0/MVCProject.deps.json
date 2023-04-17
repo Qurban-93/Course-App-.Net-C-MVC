@@ -8,7 +8,10 @@
     ".NETCoreApp,Version=v7.0": {
       "MVCProject/1.0.0": {
         "dependencies": {
+          "Facebook": "7.0.6",
           "MailKit": "3.6.0",
+          "Microsoft.AspNetCore.Authentication.Facebook": "7.0.5",
+          "Microsoft.AspNetCore.Authentication.Google": "7.0.5",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.4",
           "Microsoft.EntityFrameworkCore": "7.0.4",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.4",
@@ -53,6 +56,14 @@
           }
         }
       },
+      "Facebook/7.0.6": {
+        "runtime": {
+          "lib/net45/Facebook.dll": {
+            "assemblyVersion": "6.0.10.0",
+            "fileVersion": "7.0.6.0"
+          }
+        }
+      },
       "Humanizer.Core/2.14.1": {
         "runtime": {
           "lib/net6.0/Humanizer.dll": {
@@ -69,6 +80,22 @@
           "lib/net6.0/MailKit.dll": {
             "assemblyVersion": "3.6.0.0",
             "fileVersion": "3.6.0.0"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.Facebook/7.0.5": {
+        "runtime": {
+          "lib/net7.0/Microsoft.AspNetCore.Authentication.Facebook.dll": {
+            "assemblyVersion": "7.0.5.0",
+            "fileVersion": "7.0.523.17410"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.Google/7.0.5": {
+        "runtime": {
+          "lib/net7.0/Microsoft.AspNetCore.Authentication.Google.dll": {
+            "assemblyVersion": "7.0.5.0",
+            "fileVersion": "7.0.523.17410"
           }
         }
       },
@@ -2392,6 +2419,13 @@
       "path": "azure.identity/1.6.0",
       "hashPath": "azure.identity.1.6.0.nupkg.sha512"
     },
+    "Facebook/7.0.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-D9nlWZb88S4U+eh1pUDQ+AkSkiht6m0eFpxKFddZnQSSFTnncvDMBEnNODy4fOIOjWQIiOXRVbuY04jCPyWqkw==",
+      "path": "facebook/7.0.6",
+      "hashPath": "facebook.7.0.6.nupkg.sha512"
+    },
     "Humanizer.Core/2.14.1": {
       "type": "package",
       "serviceable": true,
@@ -2405,6 +2439,20 @@
       "sha512": "sha512-P7sL/bWj6girXBYlmZmCQnS6Y0DHMe947iiH+Dzl3vlJJiFUcnhxJei/gnrIARuaFUpPoYoFjVqguHwOT4Myzg==",
       "path": "mailkit/3.6.0",
       "hashPath": "mailkit.3.6.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.Facebook/7.0.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OnSgITl3N8v8A447zrWqyoeqoYLxcY3ixVTKf1a5h+QpmZUujH/gvJRETHaUIVlk3b64MlzbkdAG/JsHpVjlpw==",
+      "path": "microsoft.aspnetcore.authentication.facebook/7.0.5",
+      "hashPath": "microsoft.aspnetcore.authentication.facebook.7.0.5.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.Google/7.0.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-W7GAE+Gor29canssOYuZzTHOPsPX1FjYLlOoqWRA9fw7Hk7JSBo9n682LngXokvICzWKzV0MIuUa+izLmk/VmA==",
+      "path": "microsoft.aspnetcore.authentication.google/7.0.5",
+      "hashPath": "microsoft.aspnetcore.authentication.google.7.0.5.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Cryptography.Internal/7.0.4": {
       "type": "package",
